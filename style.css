@@ -86,7 +86,7 @@ td:empty {
   border-bottom: none;
   border-top: none;
 }
-td:hover {
+td:hover, td:active {
   -webkit-text-stroke: 2pt rgba(255, 255, 255, 10%);
   paint-order: stroke fill;
 }

@@ -107,7 +107,7 @@ for p in alone_subs:
 precedence = [past_children, strictly_future_parents, parents, parents_which_are_also_past_children, equated]
 
 def selector(m, p):
-  return f'html:has({", ".join([f'#{c}:hover' for c in m[p]])}) #{p}'
+  return f'html:has({", ".join([f'#{c}:hover, #{c}:active' for c in m[p]])}) #{p}'
 def css(m):
   return ", ".join([ selector(m, p) for p in m if len(m[p]) > 0 ])
 
