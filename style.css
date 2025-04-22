@@ -1,0 +1,167 @@
+
+@font-face {
+  font-family: "SBLHebrew";
+  src: url("SBLHebrew.woff2");
+}
+
+body {
+  font-family: "Crimson Text";
+  --future-accent-color:  rgba(88, 255, 0, 8%);
+  --next-accent-color:    rgba(255, 213, 51, 50%);
+  --current-accent-color: rgba(255, 176, 0, 80%);
+  --past-accent-color:    rgba(255, 0, 0, 8%);
+}
+
+h3 {
+  margin: 0;
+}
+
+p + ul {
+  margin-top: -10px;
+}
+
+
+.nowrap {
+  white-space: nowrap;
+}
+.no-borders {
+  border: none;
+}
+
+.colorSwatch {
+  width: 13px;
+  height: 13px;
+  border-radius: 2px;
+  border: 1px solid #CCC;
+  display: inline-block;
+  margin-right: 3px;
+  margin-bottom: -2px;
+}
+
+.opening-text {
+  font-size: 105%;
+}
+.body-wrap {
+  max-width: 1125px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.container {
+  display: inline-block;
+  margin-left: auto;
+  text-align: center;
+}
+.bottom-container {
+  display: inline;
+  width: 100%;
+}
+.flex-container {
+  display: flex;
+  justify-content: space-between;
+  column-gap: 20px;
+}
+
+table {
+  border-collapse: collapse;
+  text-align: center;
+  margin-bottom: 20px;
+}
+th, td {
+  border: 1px solid #aaa;
+  padding: 3px 12px 1px 12px;
+  height: 32px;
+}
+th {
+  background-color: #ccc;
+  font-size: 105%;
+}
+th:has(+ td) {
+  font-weight: normal;
+  font-size: 100%;
+}
+td {
+  position: relative;
+}
+td:empty {
+  border-bottom: none;
+  border-top: none;
+}
+td:hover {
+  -webkit-text-stroke: 2pt rgba(255, 255, 255, 10%);
+  paint-order: stroke fill;
+}
+
+#subsTable .notes-left {
+  min-width: 70px;
+  max-width: 170px;
+}
+#subsTable .notes-right {
+  min-width:  80px;
+  max-width: 180px;
+}
+
+#uncommonSubsTable .notes-left {
+  min-width: 130px;
+  max-width: 230px;
+}
+#uncommonSubsTable .notes-right {
+  min-width: 150px;
+  max-width: 250px;
+}
+
+#rareSubsTable .notes-left {
+  min-width: 165px;
+  max-width: 265px;
+}
+#rareSubsTable .notes-right {
+  min-width: 150px;
+  max-width: 250px;
+}
+
+.conj {
+  /* color: #555; */
+  border-left: 1px solid #eee;
+}
+.duplicate {
+  /* color: #888; */
+  color: #777;
+}
+td:has(+ .conj) {
+  border-right: none;
+}
+
+.he {
+  font-family: "SBLHebrew";
+  font-size: 150%;
+}
+.tl {
+  font-style: italic;
+}
+
+.end {
+  border-left: 1.5px solid black;
+}
+td:has(+ .end) {
+  border-right: none;
+}
+
+.arrow-from-right::before, .arrow-to-left::before, .arrow-top-to-left::before {
+  content: url('data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="12px" height="10px" fill="transparent" stroke="black" stroke-width="1.5" stroke-linecap="round"%3E%3Cpath d="M4.5 2.5 L2 5 L4.5 7.5"/%3E%3Cpath d="M2 5 H10"/%3E%3C/svg%3E%0A');
+  position: absolute;
+  height: 100%;
+  top: 0;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+.arrow-from-right::before {
+  right: -6px;
+}
+.arrow-to-left::before {
+  left: -6px;
+}
+.arrow-top-to-left::before {
+  height: 32px;
+  left: -6px;
+}

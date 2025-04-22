@@ -1,0 +1,192 @@
+<!DOCTYPE html><html>
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Cantillation Reference</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css" />
+<link rel="stylesheet" href="generated.css" />
+</head>
+<body>
+<div class="body-wrap">
+
+<div class="opening-text">
+<h1>Visualizing the System of Hebrew Accents</h1>
+
+<p>
+  This page is designed to provide a visual way to understand the rules of Biblical Hebrew cantillation,
+  a system of markings called <b>accents</b> that provide grammatical information (similar to English punctuation, but much more detailed).
+  It is based on <a href="http://www.jamesdprice.com/images/21_Syntax_of_Accents_rev._ed..pdf">The Syntax of Masoretic Accents by James D. Price</a>,
+  except here <span class="tl">Kadma V'Azla</span> is treated as one accent instead of two.
+  Note that it only applies to the books of the <span class="tl">Tanakh</span> (the Hebrew Bible) except Esther, Proverbs, and Job - which use a different system.
+</p><p>
+  <b>Rules:</b> Within a row, you can only move <b>directly left</b>,
+  although you may optionally skip any conjunctive accents (those in parentheses).
+  Once you reach the <b>end of the row</b>, you may then <b>jump to any cell</b>
+  in <b>that column</b> or a <b>column to the right</b>.
+</p><p>
+  <b>Colors:</b> When hovering over the tables below:
+  <ul><li>
+    <span class="colorSwatch" style="background-color: var(--past-accent-color)"></span><b>Light red</b>
+    indicate all accents which could have come before the current accent (without jumping),
+  </li><li>
+    <span class="colorSwatch" style="background-color: var(--current-accent-color)"></span><b>Orange</b>
+    indicates the current accent or one its substitutes,
+  </li><li>
+    <span class="colorSwatch" style="background-color: var(--next-accent-color)"></span><b>Yellow</b>
+    indicates all accents which can come immediately after the current accent, and
+  </li><li>
+    <span class="colorSwatch" style="background-color: var(--future-accent-color)"></span><b>Light green</b>
+    indicates all accents which could come further after the current accent (without jumping).
+  </li></ul>
+</p><p>
+  <b>Note:</b> Sometimes more than one conjunctive accent (one in parentheses) will appear in a row.
+  Aside from the two cases accounted for in the substitution table below, this additional accent is almost always a <span class="tl">Munach</span>,
+  although sometimes it is a <span class="tl">Mapach</span>, a <span class="tl">Kadma</span>, or a <span class="tl">Darga</span>
+  (in decreasing order of frequency).
+</p><p>
+  * = Can only be used once, as the first of its rank or higher before <span class="tl nowrap">Sof-pasuk</span> (the end of the verse).
+</p>
+</div>
+
+<div class="container">
+
+<div class="container">
+<table id="mainTable"><tbody>
+<tr>
+  <th colspan="2">I/II - Emperors</th>
+  <th colspan="2">III - Kings</th>
+  <th colspan="2">IV - Dukes</th>
+  <th colspan="2">V - Counts</th>
+</tr>
+<tr>
+  <td></td>
+    <td class="conj"></td>
+  <td></td>
+    <td class="conj"></td>
+  <td></td>
+    <td class="conj"></td>
+  <td id="pazer" class="end"><span class="he">פז֡ר</span> <span class="tl">Pazer</span></td>
+    <td id="pazer-munach" class="duplicate conj">(<span class="he">מנ֣ח</span> <span class="tl">Munach</span>)</td>
+</tr>
+<tr>
+  <td></td>
+    <td class="conj"></td>
+  <td></td>
+    <td class="conj"></td>
+  <td id="rvia" class="end" rowspan="2"><span class="he">רב֗יע</span> <span class="tl">R'via</span></td>
+    <td id="rvia-munach" class="duplicate conj" rowspan="2">(<span class="he">מנ֣ח</span> <span class="tl">Munach</span>)</td>
+  <td id="lgarmeh" class="arrow-to-left"><span class="he">לגרמ֣ה׀</span> <span class="tl">L'garmeh</span></td>
+    <td id="lgarmeh-mercha" class="duplicate conj">(<span class="he">מרכ֥א</span> <span class="tl">Mercha</span>)</td>
+</tr>
+<tr>
+  <td></td>
+    <td class="conj"></td>
+  <td></td>
+    <td class="conj"></td>
+  <td id="kadma-vazla" class="arrow-top-to-left" rowspan="5"><span class="he">קדמ֨א ואזל֜א</span> <br> <span class="tl">Kadma V'Azla</span></td>
+    <td id="kadma-vazla-tlisha" class="conj" rowspan="5">(<span class="he">תלישא֩</span> <span class="tl">T'lisha</span>)</td>
+</tr>
+<tr>
+  <td></td>
+    <td class="conj"></td>
+  <td id="segol" class="end"><span class="he">סגול֒</span> <span class="nowrap"><span class="tl">Segol</span> *</span></td>
+    <td id="segol-munach" class="duplicate conj arrow-from-right">(<span class="he">מנ֣ח</span> <span class="tl">Munach</span>)</td>
+  <td id="zarka"><span class="he">זרקא֮</span> <span class="tl">Zarka</span></td>
+    <td id="zarka-munach" class="duplicate conj arrow-from-right">(<span class="he">מנ֣ח</span> <span class="tl">Munach</span>)</td>
+</tr>
+<tr>
+  <td></td>
+    <td class="conj"></td>
+  <td id="zakef" class="end"><span class="he">זק֔ף</span> <span class="tl">Zakef</span></td>
+    <td id="zakef-munach" class="conj arrow-from-right">(<span class="he">מנ֣ח</span> <span class="tl">Munach</span>)</td>
+  <td id="pashta"><span class="he">פשטא֙</span> <span class="tl">Pashta</span></td>
+    <td id="pashta-mapach" class="conj arrow-from-right">(<span class="he">מהפ֤ך</span> <span class="tl">Mapach</span>)</td>
+</tr>
+<tr>
+  <td id="etnachta" class="end"><span class="he">אתנחת֑א</span> <span class="nowrap"><span class="tl">Etnachta</span> *</span></td>
+    <td id="etnachta-munach" class="duplicate conj arrow-from-right">(<span class="he">מנ֣ח</span> <span class="tl">Munach</span>)</td>
+  <td id="tipcha" rowspan="2"><span class="he">טפח֖א</span> <span class="tl">Tipcha</span></td>
+    <td id="tipcha-mercha" class="conj arrow-from-right" rowspan="2">(<span class="he">מרכ֥א</span> <span class="tl">Mercha</span>)</td>
+  <td id="tvir" rowspan="2"><span class="he">תב֛יר</span> <span class="tl">T'vir</span></td>
+    <td id="tvir-darga" class="conj arrow-from-right" rowspan="2">(<span class="he">דרג֧א</span> <span class="tl">Darga</span>)</td>
+</tr>
+<tr>
+  <td id="sof-pasuk" class="end"><span class="he">סוף־פסֽוק׃</span> <span class="tl nowrap">Sof-pasuk</span></td>
+    <td id="sof-pasuk-mercha" class="duplicate conj arrow-from-right">(<span class="he">מרכ֥א</span> <span class="tl">Mercha</span>)</td>
+</tr>
+</tbody></table>
+</div>
+
+<!-- <div class="bottom-container"><div class="flex-container"> -->
+
+<div class="container">
+<table id="subsTable"><tbody>
+<tr>
+  <th colspan="7">Substitutions for an accent ‘by itself’ – i.e. an accent with nothing from its row directly before it</th>
+</tr>
+<tr>
+  <th><span class="he">סגול֒</span> <span class="tl">Segol</span></td>
+    <td id="shalshalet"><span class="he">שלש֓לת</span> <span class="tl">Shalshalet</span></td>
+    <td class="notes-left">—</td>
+  <td></td>
+  <th rowspan="3"><span class="he">קדמ֨א ואזל֜א</span> <br> <span class="tl">Kadma V'Azla</span></td>
+    <td rowspan="2" id="gershayim"><span class="he">גרש֞ים</span> <span class="tl">Gershayim</span></td>
+    <td rowspan="2" class="notes-right">Only on a single word with its final syllable stressed</td>
+</tr>
+<tr>
+  <th><span class="he">זק֔ף</span> <span class="tl">Zakef</span></td>
+    <td id="zakef-gadol"><span class="he">זקף־גד֕ול</span> <span class="tl nowrap">Zakef-gadol</span></td>
+    <td class="notes-left">Only on a short word</td>
+</tr>
+<tr>
+  <th><span class="he">פשטא֙</span> <span class="tl">Pashta</span></td>
+    <td id="ytiv"><span class="he">י֚תיב</span> <span class="tl">Ytiv</span></td>
+    <td class="notes-left">Only on a 1-syllable word</td>
+    <td></td>
+    <!--th-->
+      <td id="azla-geresh"><span class="he">אזלא־ג֜רש</span> <span class="tl nowrap">Azla-geresh</span></td>
+      <td class="notes-right">Only on a short single word</td>
+</tr>
+</tbody></table>
+</div>
+
+<div class="container">
+<table id="uncommonSubsTable"><tbody>
+<tr>
+  <th colspan="7">Other common substitutions</th>
+</tr>
+<tr>
+  <th><span class="he">קדמ֨א ואזל֜א</span> <br> <span class="tl">Kadma V'Azla</span></td>
+    <td id="kadma" class="conj">(<span class="he">קדמ֨א</span> <span class="tl">Kadma</span>)</td>
+    <td class="notes-left">Only about 14% of the time – 267 out of 1,889 times in the <span class="tl">Tanakh</span></td> <!-- 267 / (510 + 267 + 1112) --> <!-- (69 + 527 + 346 + 2) -->
+  <td></td>
+  <th><span class="he">פז֡ר</span> <span class="tl">Pazer</span></td>
+    <td id="tlisha-gdolah"><span class="he">ת֠לישא־גדולה</span> <br> <span class="tl nowrap">T'lisha-g'dolah</span></td>
+    <td class="notes-right">Only on a word right before <span class="tl">Kadma V'Azla</span> (effectively replacing <span class="tl nowrap">T'lisha</span>) – 266 times in the <span class="tl">Tanakh</span></td>
+</tr>
+</tbody></table>
+</div>
+
+<div class="container">
+  <table id="rareSubsTable"><tbody>
+  <tr>
+    <th colspan="7">Rare substitutions</th>
+  </tr>
+  <tr>
+    <th><span class="he">תב֛יר</span> <span class="tl">T'vir</span></td>
+      <td id="mercha-kfulah" class="conj">(<span class="he">מֵרְכָא־כְּפוּלָ֦ה</span> <br> <span class="tl nowrap">Mercha-k'fulah</span>)</td>
+      <td class="notes-left">Only on a single word right after <span class="tl">Darga</span> and right before <span class="tl">Tipcha</span> (effectively replacing <span class="tl">Mercha</span>) – 5 times in the <span class="tl">Tanakh</span></td> <!-- 267 / (510 + 267 + 1112) -->
+    <td></td>
+    <th><span class="he">פז֡ר</span> <span class="tl">Pazer</span></td>
+      <td id="galgal-karne-farah"><span class="he">גלג֪ל קרני־פר֟ה</span> <br> <span class="tl nowrap">Galgal Karne-farah</span></td>
+      <td class="notes-right">Only about 4% of the time – 16 out of 436 times in the <span class="tl">Tanakh</span>)</td> <!-- 16 / (154 + 16 + 266) -->
+  </tr>
+  </tbody></table>
+</div>
+
+</div>
+
+</div>
+</body>
+</html>
