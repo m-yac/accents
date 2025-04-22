@@ -16,14 +16,23 @@
 <p>
   This page is designed to provide a visual way to understand the rules of Biblical Hebrew cantillation,
   a system of markings called <b>accents</b> that provide grammatical information (similar to English punctuation, but much more detailed).
-  It is based on <a href="http://www.jamesdprice.com/images/21_Syntax_of_Accents_rev._ed..pdf">The Syntax of Masoretic Accents by James D. Price</a>,
+  This is based on <a href="http://www.jamesdprice.com/images/21_Syntax_of_Accents_rev._ed..pdf">The Syntax of Masoretic Accents by James D. Price</a>,
   except here <span class="tl">Kadma V'Azla</span> is treated as one accent instead of two.
-  Note that it only applies to the books of the <span class="tl">Tanakh</span> (the Hebrew Bible) except Esther, Proverbs, and Job - which use a different system.
+  Note that this does not apply to books of Psalms, Proverbs, and Job, which use a different system.
 </p><p>
-  <b>Rules:</b> Within a row, you can only move <b>directly left</b>,
-  although you may optionally skip any conjunctive accents (those in parentheses).
-  Once you reach the <b>end of the row</b>, you may then <b>jump to any cell</b>
-  in <b>that column</b> or a <b>column to the right</b>.
+  <b>How to use this page:</b> To find out what accent can come after a given accent, follow these rules for moving from cell to cell in the first table below:
+  <ul><li>
+    Within a row, you can only move <b>directly left</b>,
+    although you may optionally skip any conjunctive accents (those in parentheses).
+  </li><li>
+    Once you reach the <b>end of the row</b>, you may then <b>jump</b> to <b>any cell</b>
+    in <b>that column</b> or a <b>column to the right</b>.
+  </li><li>
+    If an accent appears <b>by itself</b> – i.e. with nothing from its row directly before it –
+    then it may need to be <b>substituted</b> (see the second table below).
+  </li><li>
+    An asterisk (*) means this accent only be used <b>once</b> per verse, as the first of its rank or higher before <span class="tl nowrap">Sof-pasuk</span> (these are <span class="tl">Etnachta</span> and <span class="tl">Segol</span>).
+  </li></ul>
 </p><p>
   <b>Colors:</b> When hovering over the tables below:
   <ul><li>
@@ -40,12 +49,14 @@
     indicates all accents which could come further after the current accent (without jumping).
   </li></ul>
 </p><p>
-  <b>Note:</b> Sometimes more than one conjunctive accent (one in parentheses) will appear in a row.
-  Aside from the two cases accounted for in the substitution table below, this additional accent is almost always a <span class="tl">Munach</span>,
-  although sometimes it is a <span class="tl">Mapach</span>, a <span class="tl">Kadma</span>, or a <span class="tl">Darga</span>
-  (in decreasing order of frequency).
-</p><p>
-  * = Can only be used once, as the first of its rank or higher before <span class="tl nowrap">Sof-pasuk</span> (the end of the verse).
+  <b>Note:</b> Conjunctive accents (those in parentheses) have less clear-cut rules defining their usage.
+  For example, many of them do not have a just one accent that they always pair with –
+  duplicates in the table below are marked in light gray.
+  Additionally, more than one such accent can appear in a row.
+  Aside from the two cases account for below where a regular accent is substituted for a conjunctive one,
+  this additional accent can be a repeat of what comes after it,
+  a <span class="tl">Munach</span>, a <span class="tl">Mapach</span>, a <span class="tl">Kadma</span>, or a <span class="tl">Darga</span>
+  (from most to least common).
 </p>
 </div>
 
@@ -186,6 +197,66 @@
 </div>
 
 </div>
+
+<div class="opening-text">
+<h2>Understanding the System of Hebrew Accents</h2>
+
+<p>
+  <b>Analogy:</b> In a long verse, the accents at the ends of their respective rows have the following approximate correspondences in English punctuation:
+  <ul><li>
+    The <b>Emperors</b> <span class="tl nowrap">Sof-pasuk</span> and <span class="tl">Etnachta</span> correspond to a <b>period</b> and a <b>semicolon</b> or <b>dash</b>, respectively.
+  </li><li>
+    The <b>Kings</b> <span class="tl">Segol</span> and <span class="tl">Zakef</span> correspond to <b>dashes</b> or <b>commas</b>.
+  </li><li>
+    The <b>Duke</b> <span class="tl">R'via</span> corresponds to a <b>comma</b> or an <b>unmarked boundary</b> between two phrases.
+  </li><li>
+    The <b>Count</b> <span class="tl">Pazer</span> corresponds to a <b>unmarked boundary</b> between two phrases.
+  </li><li>
+    The <b>conjuctive accents</b> (those in parentheses) are used to mark words within a <b>phrase</b>.
+  </li></ul>
+  In shorter verses, this correspondence often shifts up, e.g. with <span class="tl">Etnachta</span> corresponding to a <b>comma</b> or even an <b>unmarked boundary</b> in an extremely short verse.
+</p><p>
+  <b>Example:</b> Below is Genesis 7:11 and its translation laid out with a line break
+  every time a “jump” happens (i.e. an accent on the end of its row is reached).
+  This makes it easy to spot the correspondences described above.
+  Hover over a Hebrew word to see its corresponding English equivalent, or vice versa.
+</p>
+</div>
+
+<div class="container">
+<table id="enExampleTable"><tbody>
+  <tr>
+    <td class="he he-example" dir="rtl"><span id="he1">בִּשְׁנַ֨ת</span> <span id="he2">שֵׁשׁ־מֵא֤וֹת</span> <span id="he3">שָׁנָה֙</span> <span id="he4">לְחַיֵּי־נֹ֔חַ</span></td>
+  </tr><tr>
+    <td class="he he-example" dir="rtl"><span id="he11">בַּחֹ֙דֶשׁ֙</span> <span id="he12">הַשֵּׁנִ֔י</span></td>
+  </tr><tr>
+    <td class="he he-example" dir="rtl"><span id="he21">בְּשִׁבְעָֽה־עָשָׂ֥ר</span> <span id="he22">י֖וֹם</span> <span id="he23">לַחֹ֑דֶשׁ</span></td>
+  </tr><tr>
+    <td class="he he-example" dir="rtl"><span id="he31">בַּיּ֣וֹם</span> <span id="he32">הַזֶּ֗ה</span></td>
+  </tr><tr>
+    <td class="he he-example" dir="rtl"><span id="he41">נִבְקְעוּ֙</span> <span id="he42">כׇּֽל־מַעְיְנֹת֙</span> <span id="he43">תְּה֣וֹם</span> <span id="he44">רַבָּ֔ה</span></td>
+  </tr><tr>
+    <td class="he he-example" dir="rtl"><span id="he51">וַאֲרֻבֹּ֥ת</span> <span id="he52">הַשָּׁמַ֖יִם</span> <span id="he53">נִפְתָּֽחוּ׃</span></td>
+  </tr>
+</tbody></table>
+<table id="heExampleTable"><tbody>
+  <tr>
+    <td class="en-example"><span id="en1a">In the year of</span> <span id="en2a">the sixth-hundredth</span> <span id="en3a">year</span> <span id="en4a">of Noah's life,</span></td>
+  </tr><tr>
+    <td class="en-example"><span id="en11a">in</span> <span id="en12a">the second</span> <span id="en11b">month</span>,</td>
+  </tr><tr>
+    <td class="en-example"><span id="en21a">on the seventeenth</span> <span id="en22a">day</span> <span id="en23a">of the month</span> –</td>
+  </tr><tr>
+    <td class="en-example"><span id="en31a">on</span> <span id="en32a">that</span> <span id="en31b">day</span></td>
+  </tr><tr>
+    <td class="en-example"><span id="en42a">all the fountains of</span> <span id="en44a">the great</span> <span id="en43a">deep</span> <span id="en41a">burst</span>,</td>
+  </tr><tr>
+    <td class="en-example"><span id="en51a">and the floodgates of</span> <span id="en52a">the sky</span> <span id="en53a">broke open</span>.</td>
+  </tr>
+</tbody></table>
+</div>
+
+<div class="footer">Created by <a href="https://www.yacavone.net/">Matthew Yacavone</a>, 2025</div>
 
 </div>
 </body>

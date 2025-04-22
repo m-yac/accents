@@ -104,6 +104,32 @@ for p in alone_subs:
   for q in alone_subs[p]:
     equated[q] = { p, q }
 
+# The example - unrelated to cantillation
+num_words = [4, 2, 3, 2, 4, 3]
+for i in range(0, len(num_words)):
+  for j in range(0, num_words[i]):
+    p = f'he{10 * i + j + 1}'
+    past_children[p] = { f'he{10 * i + k + 1}' for k in range(j, num_words[i]) }
+    strictly_future_parents[p] = { f'he{10 * i + k + 1}' for k in range(0, j-1) }
+    if j < num_words[i]-1:
+      parents[f'he{10 * i + j + 2}'] = { p }
+    elif i < len(num_words)-1:
+      parents[f'he{10 * (i + 1) + 1}'] = { p }
+    equated[p] = { p }
+for x in ['a', 'b']:
+  for i in range(0, len(num_words)):
+    for j in range(0, num_words[i]):
+        p, q = f'he{10 * i + j + 1}', f'en{10 * i + j + 1}{x}'
+        past_children[p] |= { s.replace('he', 'en') + x for s in past_children[p] }
+        past_children[q] = past_children[p]
+        strictly_future_parents[p] |= { s.replace('he', 'en') + x for s in strictly_future_parents[p] }
+        strictly_future_parents[q] = strictly_future_parents[p]
+        if p in parents:
+          parents[p] |= { s.replace('he', 'en') + x for s in parents[p] }
+          parents[q] = parents[p]
+        equated[p] |= { s.replace('he', 'en') + x for s in equated[p] }
+        equated[q] = equated[p]
+
 precedence = [past_children, strictly_future_parents, parents, parents_which_are_also_past_children, equated]
 
 def selector(m, p):
