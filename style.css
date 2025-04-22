@@ -3,6 +3,10 @@
   font-family: "SBLHebrew";
   src: url("SBLHebrew.woff2");
 }
+@font-face {
+  font-family: "ShofarD";
+  src: url("Shofar_D.woff");
+}
 
 body {
   font-family: "Crimson Text";
@@ -116,6 +120,11 @@ td:hover, td:active {
   max-width: 230px;
 }
 
+#subsTable-3 .notes-left {
+  min-width: 170px;
+  max-width: 270px;
+}
+
 #heExampleTable span {
   line-height: 32px;
   padding: 0.1em 0.1em;
@@ -151,6 +160,11 @@ td:has(+ .conj) {
 .he {
   font-family: "SBLHebrew";
   font-size: 150%;
+}
+.poeticBookTables .he {
+  font-family: 'ShofarD';
+  font-size: 130%;
+  line-height: 150%;
 }
 .tl {
   font-style: italic;
