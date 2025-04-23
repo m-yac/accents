@@ -33,6 +33,10 @@ p + ul {
 .no-borders {
   border: none;
 }
+.spacer {
+  display: inline-block;
+  width: 15px;
+}
 
 .colorSwatch {
   width: 13px;
@@ -125,22 +129,33 @@ td:hover, td:active {
   max-width: 270px;
 }
 
-#heExampleTable span {
+
+.he-example, .en-example {
+  margin-bottom: 0;
+  white-space: nowrap;
+  min-width: 50%;
+}
+.en-example {
+  text-align: left;
+}
+.he-example {
+  text-align: right;
+}
+.he-example td, .en-example td {
+  border: none;
+}
+.he-example span {
   line-height: 32px;
   padding: 0.1em 0.1em;
   padding-top: 0.15em;
   margin: 0px -0.1em;
 }
-#enExampleTable span {
+.en-example span {
   line-height: 32px;
   padding: 0.1em 0.1em;
   margin: 0px -0.1em;
 }
-#heExampleTable, #enExampleTable {
-  white-space: nowrap;
-  min-width: 50%;
-}
-.container:has(> #heExampleTable) {
+.container:has(> .he-example) {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
@@ -196,13 +211,4 @@ td:has(+ .end) {
 .arrow-top-to-left::before {
   height: 32px;
   left: -6px;
-}
-
-.en-example {
-  border: none;
-  text-align: left;
-}
-.he-example {
-  border: none;
-  text-align: right;
 }
