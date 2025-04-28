@@ -134,30 +134,33 @@ for p in alone_subs:
 # The example - unrelated to cantillation
 num_words = [[4, 2, 3, 2, 4, 3],
              [2, 1, 3, 2, 2],
-             [1, 5, 4, 4]]
+             [1, 5, 4, 4],
+             [9], [7], [4, 2, 1], [4, 2, 1]]
 for i in range(0, len(num_words)):
   for j in range(0, len(num_words[i])):
     for k in range(0, num_words[i][j]):
       p = f'he{100 * i + 10 * j + k + 1}'
-      past_children[p] = { f'he{100 * i + 10 * j + k1 + 1}' for k1 in range(k, num_words[i][j]) }
-      strictly_future_parents[p] = { f'he{100 * i + 10 * j + k1 + 1}' for k1 in range(0, k-1) }
-      if k < num_words[i][j]-1:
-        parents[f'he{100 * i + 10 * j + k + 2}'] = { p }
-      elif j < len(num_words[i])-1:
-        parents[f'he{100 * i + 10 * (j + 1) + 1}'] = { p }
+      if len(num_words[i]) > 1:
+        past_children[p] = { f'he{100 * i + 10 * j + k1 + 1}' for k1 in range(k, num_words[i][j]) }
+        strictly_future_parents[p] = { f'he{100 * i + 10 * j + k1 + 1}' for k1 in range(0, k-1) }
+        if k < num_words[i][j]-1:
+          parents[f'he{100 * i + 10 * j + k + 2}'] = { p }
+        elif j < len(num_words[i])-1:
+          parents[f'he{100 * i + 10 * (j + 1) + 1}'] = { p }
       equated[p] = { p }
 for x in ['a', 'b']:
   for i in range(0, len(num_words)):
     for j in range(0, len(num_words[i])):
       for k in range(0, num_words[i][j]):
         p, q = f'he{100 * i + 10 * j + k + 1}', f'en{100 * i + 10 * j + k + 1}{x}'
-        past_children[p] |= { s.replace('he', 'en') + x for s in past_children[p] }
-        past_children[q] = past_children[p]
-        strictly_future_parents[p] |= { s.replace('he', 'en') + x for s in strictly_future_parents[p] }
-        strictly_future_parents[q] = strictly_future_parents[p]
-        if p in parents:
-          parents[p] |= { s.replace('he', 'en') + x for s in parents[p] }
-          parents[q] = parents[p]
+        if len(num_words[i]) > 1:
+          past_children[p] |= { s.replace('he', 'en') + x for s in past_children[p] }
+          past_children[q] = past_children[p]
+          strictly_future_parents[p] |= { s.replace('he', 'en') + x for s in strictly_future_parents[p] }
+          strictly_future_parents[q] = strictly_future_parents[p]
+          if p in parents:
+            parents[p] |= { s.replace('he', 'en') + x for s in parents[p] }
+            parents[q] = parents[p]
         equated[p] |= { s.replace('he', 'en') + x for s in equated[p] }
         equated[q] = equated[p]
 

@@ -3,6 +3,7 @@
   font-family: "SBLHebrew";
   src: url("SBLHebrew.woff2");
 }
+
 @font-face {
   font-family: "ShofarD";
   src: url("Shofar_D.woff");
@@ -17,6 +18,23 @@ body {
   --past-accent-color:    rgba(255, 0, 0, 8%);
 }
 
+a,
+a:visited {
+  color: #149;
+  text-decoration: none;
+  cursor: pointer;
+}
+a:hover,
+a:focus,
+a:visited:hover,
+a:visited:focus {
+  color: #F3470F;
+}
+td:target, span:target {
+  text-shadow: 1px 1px 10px AccentColor;
+  animation: hilite 2s ease-out 8s forwards;
+}
+
 h3 {
   margin: 0;
 }
@@ -25,10 +43,17 @@ p + ul {
   margin-top: -10px;
   margin-bottom: 5px;
 }
+ul {
+  margin-top: 2px;
+  padding-left: 25px;
+}
 
 
 .nowrap {
   white-space: nowrap;
+}
+.small-caps {
+  font-variant: small-caps;
 }
 .no-borders {
   border: none;
@@ -106,6 +131,9 @@ td:hover, td:active {
   -webkit-text-stroke: 2pt rgba(255, 255, 255, 15%);
   paint-order: stroke fill;
 }
+@keyframes hilite {
+  100% { text-shadow: 1px 1px 10px rgba(255, 255, 255, 0%); }
+}
 
 #subsTable .notes-left {
   min-width: 70px;
@@ -130,8 +158,20 @@ td:hover, td:active {
   max-width: 270px;
 }
 
+#correspondences {
+  width: 100%;
+}
+#correspondences td {
+  border: none;
+}
+#correspondences .notes-left {
+  min-width: 470px;
+  max-width: 570px;
+  text-align: left;
+}
 
-.he-example, .en-example {
+
+.he-example, .en-example, .he-en-example {
   margin-bottom: 0;
   white-space: nowrap;
   min-width: 50%;
@@ -142,24 +182,63 @@ td:hover, td:active {
 .he-example {
   text-align: right;
 }
-.he-example td, .en-example td {
+.he-en-example {
+  text-align: center;
+}
+.he-example td, .en-example td, .he-en-example td {
   border: none;
 }
-.he-example span {
-  line-height: 32px;
-  padding: 0.1em 0.1em;
-  padding-top: 0.15em;
-  margin: 0px -0.1em;
-}
-.en-example span {
+.he-example span, .en-example span, .he-en-example span {
   line-height: 32px;
   padding: 0.1em 0.1em;
   margin: 0px -0.1em;
 }
-.container:has(> .he-example) {
+.container:has(> .he-example), .container:has(> .en-example), .container:has(> .he-en-example) {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
+}
+
+td:has(.unm-short-phrase) {
+  padding-bottom: 10px;
+}
+td:has(.long-phrase) {
+  padding-bottom: 60px;
+}
+.short-phrase, .long-phrase, .unm-short-phrase {
+  position: relative;
+  line-height: unset;
+}
+.short-phrase::after, .long-phrase::after, .unm-short-phrase::after {
+  position: absolute;
+  display: block;
+  left: 2%;
+  right: 2%;
+  text-align: center;
+  font-family: 'Crimson Text';
+  font-size: 10pt;
+  line-height: initial;
+}
+.unm-short-phrase::after {
+  top: 120%;
+  border-top: 1px solid;
+  content: "";
+}
+.short-phrase::after {
+  top: 120%;
+  border-top: 1px solid;
+  content: "short phrase";
+}
+.long-phrase::after {
+  top: 220%;
+  border-top: 2.5px double;
+  content: "long phrase";
+}
+.abbr.short-phrase::after {
+  content: "short";
+}
+.abbr.long-phrase::after {
+  content: "long";
 }
 
 .conj {
@@ -174,15 +253,17 @@ td:has(+ .conj) {
 }
 
 .he {
-  font-family: "SBLHebrew";
+  font-family: 'SBLHebrew';
   font-size: 150%;
 }
 .poeticBookTables .he {
-  font-family: 'ShofarD';
+  /* font-family: 'ShofarD';
   font-size: 130%;
-  line-height: 150%;
+  line-height: 150%; */
+  font-size: 140%;
 }
 .tl {
+  font-family: 'Crimson Text';
   font-style: italic;
 }
 

@@ -17,17 +17,153 @@
 <div class="body-wrap">
 
 <div class="opening-text">
-<h1>Visualizing the System of Hebrew Accents</h1>
+<h1 id="introduction">Visualizing the System of Hebrew Accents</h1>
 
 <p>
-  This page is designed to provide a visual way to understand the rules of Biblical Hebrew cantillation,
-  a system of markings called <b>accents</b> that provide grammatical information (similar to English punctuation, but much more detailed).
-  This is based on <a href="http://www.jamesdprice.com/images/21_Syntax_of_Accents_rev._ed..pdf">The Syntax of Masoretic Accents by James D. Price</a>,
-  except here <span class="nowrap tl">Kadma V'Azla</span> is treated as one accent instead of two.
-  Most of this does not apply to books of Psalms, Proverbs, and Job,
-  which use a different system briefly sketched in the last section.
+  The Hebrew alphabet, like the Arabic alphabet, only contains letters representing consonants –
+  so for thousands of year the texts of the <i>Tanakh</i> (the Hebrew Bible) contained no markings for vowels.
+  In most cases, a word's context is enough for a Hebrew speaker to intuitively know how to pronounce the word –
+  just like how English speakers intuitively know to pronounce “tear” differently in “I shed a tear” as opposed to “I tear some paper.”
 </p><p>
-  <b>How to use this page:</b> To find out what accent can come after a given accent, follow these rules for moving from cell to cell in the first table below:
+  But after the destruction of the second temple, less and less Jews spoke Hebrew as their native language –
+  mostly interacting with these texts through oral recitation.
+  Instead of each word's pronunciation being obvious, the Hebrew text perhaps began to look to its readers something like the English text below does to you:
+</p>
+</div><div class="container">
+  <table class="he-en-example"><tbody>
+    <tr><td class="he" dir="rtl">
+      <span id="he301">והיו</span> <span id="he302">למאורת</span> <span id="he303">ברקיע</span> <span id="he304">השמים</span>
+      <span id="he305">להאיר</span> <span id="he306">על</span> <span id="he307">הארץ</span>
+      <span id="he308">ויהי</span> <span id="he309">כן</span>
+    </td></tr>
+    <tr><td>
+      <span id="en301a">N THY WLL SRVE</span> <span id="en302a">AS LGTS</span> <span id="en303a">ON TH SRFCE OF</span> <span id="en304a">TH SKY</span>
+      <span id="en305a">IN ORDR TO SHN</span> <span id="en306a">ON</span> <span id="en307a">TH ERTH</span>
+      <span id="en308a">N IT WS</span> <span id="en309a">SO</span>
+    </td></tr>
+  </tbody></table>
+</div><div class="opening-text">
+<p>
+  A group of sages called the Masoretes began to add diacritics to the text to aid with recitation.
+  Most well known are the markings they added to represent vowels, called <i>Nikud</i>.
+  With just <i>Nikud</i>, the text could now be pronounced correctly just by looking at it:
+</p>
+</div><div class="container">
+  <table class="he-en-example"><tbody>
+    <tr><td class="he" dir="rtl">
+      <span id="he401">וְהָיוּ</span> <span id="he402">לִמְאוֹרֹת</span> <span id="he403">בִּרְקִיעַ</span> <span id="he404">הַשָּׁמַיִם</span>
+      <span id="he405">לְהָאִיר</span> <span id="he406">עַל־הָאָרֶץ</span>
+      <span id="he407">וַיְהִי־כֵן</span>
+    </td></tr>
+    <tr><td>
+      <span id="en401a">and they will serve</span> <span id="en402a">as lights</span> <span id="en403a">on the surface of</span> <span id="en404a">the sky</span>
+      <span id="en405a">in order to shine</span> <span id="en406a">on the earth</span>
+      <span id="en407a">and it was so</span>
+    </td></tr>
+  </tbody></table>
+</div><div class="opening-text">
+<p>
+  But, the Masoretes added other markings, called <i>Ta'amim</i>, which indicated more than just pronuncation.
+  After thousands of years of regular recitation, Jews had developed a tradition of chanting the text in a way that mirrored its grammatical structure.
+  These <i>Ta'amim</i>, called <b>cantillation marks</b> or <b>accents</b> in English, described how to chant the text, and thus, also described its grammatical structure.
+  Like with punctuation marks in English, the intended structure of the text can now be understood just by looking at it:
+</p>
+</div><div class="container">
+  <table class="he-en-example"><tbody>
+    <tr><td class="he" dir="rtl">
+      <span id="he501">וְהָי֤וּ</span> <span id="he502">לִמְאוֹרֹת֙</span> <span id="he503">בִּרְקִ֣יעַ</span> <span id="he504">הַשָּׁמַ֔יִם</span>
+      <span id="he511">לְהָאִ֖יר</span> <span id="he512">עַל־הָאָ֑רֶץ</span>
+      <span id="he521">וַֽיְהִי־כֵֽן׃</span>
+    </td></tr>
+    <tr><td>
+      <span id="en501a">And they will serve</span> <span id="en502a">as lights</span> <span id="en503a">on the surface of</span> <span id="en504a">the sky</span>,
+      <span id="en511a">in order to shine</span> <span id="en512a">on the earth</span> –
+      <span id="en521a">and it was so.</span>
+    </td></tr>
+  </tbody></table>
+</div><div class="opening-text">
+
+<h2 id="overview">Overview</h2>
+
+<p>
+  I like to think about accents as grouping the words in a verse into <b>short phrases</b> (each of which being a group of usually one or two words that are closely related)
+  and in turn grouping these short phrases into <b>long phrases</b> (each one being usually a <a href="https://en.wikipedia.org/wiki/Clause">clause</a> of the sentences).
+  In particular:
+</p><ul>
+  <li><b>Conjunctive accents</b> indicate that the word they're on is part of a <b>short phrase</b> that includes the following word</li>
+  <li>
+    <b>Disjunctive accents</b> indicate that the word they're on is the <b>end</b> of a short phrase, which can be either:
+    <ul>
+      <li><b>Near</b>, indicating that the word they're on is part of a <b>long phrase</b> that includes the following short phrase</li>
+      <li><b>Remote</b>, indicating that the word they're on is the <b>end</b> of a long phrase</li>
+    </ul>
+  </li>
+</ul><p>
+  For example, here is the verse from the introduction, Genesis 1:15,
+  divided into short phrases and long phrases -
+  hover to see the correspondences between the Hebrew and the English
+  (the colors are described in the next section):
+</p>
+</div><div class="container">
+  <table class="he-en-example"><tbody>
+    <tr><td class="he" dir="rtl">
+      <span class="long-phrase"><span class="short-phrase"><span id="he601">וְהָי֤וּ</span> <span id="he602">לִמְאוֹרֹת֙</span></span> <span class="short-phrase"><span id="he603">בִּרְקִ֣יעַ</span> <span id="he604">הַשָּׁמַ֔יִם</span></span></span>
+      <span class="long-phrase"><span class="abbr short-phrase"><span id="he611">לְהָאִ֖יר</span></span> <span class="short-phrase"><span id="he612">עַל־הָאָ֑רֶץ</span></span></span>
+      <span class="abbr long-phrase"><span class="abbr short-phrase"><span id="he621">וַֽיְהִי־כֵֽן׃</span></span></span>
+    </td></tr>
+    <tr><td>
+      <span class="long-phrase"><span class="short-phrase"><span id="en601a">And they will serve</span> <span id="en602a">as lights</span></span> <span class="short-phrase"><span id="en603a">on the surface of</span> <span id="en604a">the sky</span></span></span>,
+      <span class="long-phrase"><span class="short-phrase"><span id="en611a">in order to shine</span></span> <span class="short-phrase"><span id="en612a">on the earth</span></span></span> –
+      <span class="long-phrase"><span class="short-phrase"><span id="en621a">and it was so.</span></span></span>
+    </td></tr>
+  </tbody></table>
+</div><div class="opening-text">
+
+<p>
+  As you may have noticed above, it is the <b>remote disjunctive accents</b> (the accents that separate the verse's <b>long phrases</b>)
+  that actually correspond to different English punctuation marks.
+  Here is an overview of the four most common of these and their approximate relationship to English punctuation:
+</p>
+</div><div class="container" style="width: 100%">
+
+<div class="container">
+  <table id="correspondences"><tbody>
+  <tr>
+    <td><span class="he" dir="rtl">סוף־פסֽוק׃</span> <span class="tl nowrap">Sof-pasuk</span></td>
+    <td class="notes-left">Marks the end of a verse – corresponds to a <b>period</b> at the end of a verse</td>
+  </tr><tr>
+    <td><span class="he" dir="rtl">אתנחת֑א</span> <span><span class="tl">Etnachta</span></span></td>
+    <td class="notes-left">Divides a verse into its two largest parts – corresponds to a <b>semicolon</b> in long verses, a <b>dash</b> in medium-length verses, and a <b>comma</b> in short verses</td>
+  </tr><tr>
+    <td><span class="he" dir="rtl">זק֔ף</span> <span><span class="tl">Zakef</span></span></td>
+    <td class="notes-left">The most common division within one of a verse's parts – usually corresponds to a <b>comma</b>, or <b>nothing</b> in short verses</td>
+  </tr><tr>
+    <td><span class="he" dir="rtl">רב֗יע</span> <span class="nowrap"><span class="tl">R'via</span></span></td>
+    <td class="notes-left">A lesser division within one of a verse's parts – often corresponds to a <b>colon</b>, or to a <b>comma</b> in long verses and <b>nothing</b> in shorter verses</td>
+  </tr>
+</tbody></table></div>
+
+</div><div class="opening-text">
+
+<h2 id="visualization">Visualization of the System</h2>
+
+<p>
+  This section provides a complete description of the system of accents used in all the books of the <i>Tanakh</i>
+  except Psalms, Proverbs, and Job (see the last section).
+  The heart of this section is the <b>first table</b> below.
+  In the language of the overview above,
+  each <b>row</b> of this table is a possible <b>long phrase</b> (read right-to-left),
+  and each pair of accents with one parenthesized and the other not is a possible <b>short phrase</b> within that long phrase.
+  A long phrase may start <b>anywhere</b> in its a row, but no <b>disjunctive accents</b> between its start and end can be skipped.
+  Once you reach a <b>remote disjunctive accent</b>, i.e. the <b>end of a row</b>, you can then <b>jump</b> to somewhere else in the table.
+  Listed below are the complete rules for moving from cell-to-cell in this table.
+</p><p>
+  Although this way to describing the system in a single table appears to be a new contribution
+  (if you know of any source that has a similar table, please let me know!),
+  the source used for all of the information in this section and the next is <a href="http://www.jamesdprice.com/images/21_Syntax_of_Accents_rev._ed..pdf">The Syntax of Masoretic Accents by James D. Price</a> –
+  except here <a href="#kadma-vazla" class="nowrap tl">Kadma V'Azla</a> is treated as one accent instead of two.
+</p><p>
+  <b>Rules for the first table below:</b> To find out what accent(s) can come after a given accent, follow these rules for moving from cell-to-cell:
   <ul><li>
     Within a row, you can only move <b>directly left</b>,
     although you may optionally skip any conjunctive accents (those in parentheses).
@@ -38,7 +174,7 @@
     If an accent appears <b>by itself</b> – i.e. with nothing from its row directly before it –
     then it may need to be <b>substituted</b> (see the second table below).
   </li><li>
-    An asterisk (*) means this accent can only be used <b>once</b> per verse, as the first of its rank or higher before <span class="tl nowrap">Sof-pasuk</span> (these are <span class="tl">Etnachta</span> and <span class="tl">Segol</span>).
+    An asterisk (*) means this accent can only be used <b>once</b> per verse, as the first of its rank or higher in the verse (these are <a href="#etnachta" class="tl">Etnachta</a> and <a href="#segol" class="tl">Segol</a>).
   </li></ul>
 </p><p>
   <b>Colors:</b> When hovering over the tables below:
@@ -58,12 +194,14 @@
 </p><p>
   <b>Note:</b> Conjunctive accents (those in parentheses) have less clear-cut rules defining their usage.
   For example, many of them do not have a just one accent that they always pair with –
-  duplicates in the table below are marked in light gray.
+  duplicates in the table below are marked in <b>light gray</b>.
   Additionally, more than one such accent can appear in a row.
-  Aside from the two cases listed in the “Less common substitutions table”
-  where a regular accent is substituted for a conjunctive one,
+  Aside from the two cases where a disjunctive accent is substituted for a conjunctive one listed in the “Less common substitutions table,”
   this additional accent can be a repeat of what comes after it,
-  a <span class="tl">Munach</span>, a <span class="tl">Mapach</span>, a <span class="tl">Kadma</span>, or a <span class="tl">Darga</span>
+  a <a href="#zakef-munach" class="tl">Munach</a>,
+  a <a href="#pashta-mapach" class="tl">Mapach</a>,
+  a <a href="#kadma" class="tl">Kadma</a>,
+  or a <a href="#tvir-darga" class="tl">Darga</a>
   (from most to least common).
 </p>
 </div>
@@ -85,54 +223,54 @@
     <td class="conj"></td>
   <td></td>
     <td class="conj"></td>
-  <td id="pazer" class="end"><span class="he">פז֡ר</span> <span class="tl">Pazer</span></td>
-    <td id="pazer-munach" class="duplicate conj">(<span class="he">מנ֣ח</span> <span class="tl">Munach</span>)</td>
+  <td id="pazer" class="end"><span class="he" dir="rtl">פז֡ר</span> <span class="tl">Pazer</span></td>
+    <td id="pazer-munach" class="duplicate conj">(<span class="he" dir="rtl">מנ֣ח</span> <span class="tl">Munach</span>)</td>
 </tr>
 <tr>
   <td></td>
     <td class="conj"></td>
   <td></td>
     <td class="conj"></td>
-  <td id="rvia" class="end" rowspan="2"><span class="he">רב֗יע</span> <span class="tl">R'via</span></td>
-    <td id="rvia-munach" class="duplicate conj" rowspan="2">(<span class="he">מנ֣ח</span> <span class="tl">Munach</span>)</td>
-  <td id="lgarmeh" class="arrow-to-left"><span class="he">לגרמ֣ה׀</span> <span class="tl">L'garmeh</span></td>
-    <td id="lgarmeh-mercha" class="duplicate conj">(<span class="he">מרכ֥א</span> <span class="tl">Mercha</span>)</td>
+  <td id="rvia" class="end" rowspan="2"><span class="he" dir="rtl">רב֗יע</span> <span class="tl">R'via</span></td>
+    <td id="rvia-munach" class="duplicate conj" rowspan="2">(<span class="he" dir="rtl">מנ֣ח</span> <span class="tl">Munach</span>)</td>
+  <td id="lgarmeh" class="arrow-to-left"><span class="he" dir="rtl">לגרמ֣ה׀</span> <span class="tl">L'garmeh</span></td>
+    <td id="lgarmeh-mercha" class="duplicate conj">(<span class="he" dir="rtl">מרכ֥א</span> <span class="tl">Mercha</span>)</td>
 </tr>
 <tr>
   <td></td>
     <td class="conj"></td>
   <td></td>
     <td class="conj"></td>
-  <td id="kadma-vazla" class="arrow-top-to-left" rowspan="5"><span class="he">קדמ֨א ואזל֜א</span> <br> <span class="nowrap tl">Kadma V'Azla</span></td>
-    <td id="kadma-vazla-tlisha" class="conj" rowspan="5">(<span class="he">תלישא֩</span> <span class="tl">T'lisha</span>)</td>
+  <td id="kadma-vazla" class="arrow-top-to-left" rowspan="5"><span class="he" dir="rtl">קדמ֨א ואזל֜א</span> <br> <span class="nowrap tl">Kadma V'Azla</span></td>
+    <td id="kadma-vazla-tlisha" class="conj" rowspan="5">(<span class="he" dir="rtl">תלישא֩</span> <span class="tl">T'lisha</span>)</td>
 </tr>
 <tr>
   <td></td>
     <td class="conj"></td>
-  <td id="segol" class="end"><span class="he">סגול֒</span> <span class="nowrap"><span class="tl">Segol</span> *</span></td>
-    <td id="segol-munach" class="duplicate conj arrow-from-right">(<span class="he">מנ֣ח</span> <span class="tl">Munach</span>)</td>
-  <td id="zarka"><span class="he">זרקא֮</span> <span class="tl">Zarka</span></td>
-    <td id="zarka-munach" class="duplicate conj arrow-from-right">(<span class="he">מנ֣ח</span> <span class="tl">Munach</span>)</td>
+  <td id="segol" class="end"><span class="he" dir="rtl">סגול֒</span> <span class="nowrap"><span class="tl">Segol</span> *</span></td>
+    <td id="segol-munach" class="duplicate conj arrow-from-right">(<span class="he" dir="rtl">מנ֣ח</span> <span class="tl">Munach</span>)</td>
+  <td id="zarka"><span class="he" dir="rtl">זרקא֮</span> <span class="tl">Zarka</span></td>
+    <td id="zarka-munach" class="duplicate conj arrow-from-right">(<span class="he" dir="rtl">מנ֣ח</span> <span class="tl">Munach</span>)</td>
 </tr>
 <tr>
   <td></td>
     <td class="conj"></td>
-  <td id="zakef" class="end"><span class="he">זק֔ף</span> <span class="tl">Zakef</span></td>
-    <td id="zakef-munach" class="conj arrow-from-right">(<span class="he">מנ֣ח</span> <span class="tl">Munach</span>)</td>
-  <td id="pashta"><span class="he">פשטא֙</span> <span class="tl">Pashta</span></td>
-    <td id="pashta-mapach" class="conj arrow-from-right">(<span class="he">מהפ֤ך</span> <span class="tl">Mapach</span>)</td>
+  <td id="zakef" class="end"><span class="he" dir="rtl">זק֔ף</span> <span class="tl">Zakef</span></td>
+    <td id="zakef-munach" class="conj arrow-from-right">(<span class="he" dir="rtl">מנ֣ח</span> <span class="tl">Munach</span>)</td>
+  <td id="pashta"><span class="he" dir="rtl">פשטא֙</span> <span class="tl">Pashta</span></td>
+    <td id="pashta-mapach" class="conj arrow-from-right">(<span class="he" dir="rtl">מהפ֤ך</span> <span class="tl">Mapach</span>)</td>
 </tr>
 <tr>
-  <td id="etnachta" class="end"><span class="he">אתנחת֑א</span> <span class="nowrap"><span class="tl">Etnachta</span> *</span></td>
-    <td id="etnachta-munach" class="duplicate conj arrow-from-right">(<span class="he">מנ֣ח</span> <span class="tl">Munach</span>)</td>
-  <td id="tipcha" rowspan="2"><span class="he">טפח֖א</span> <span class="tl">Tipcha</span></td>
-    <td id="tipcha-mercha" class="conj arrow-from-right" rowspan="2">(<span class="he">מרכ֥א</span> <span class="tl">Mercha</span>)</td>
-  <td id="tvir" rowspan="2"><span class="he">תב֛יר</span> <span class="tl">T'vir</span></td>
-    <td id="tvir-darga" class="conj arrow-from-right" rowspan="2">(<span class="he">דרג֧א</span> <span class="tl">Darga</span>)</td>
+  <td id="etnachta" class="end"><span class="he" dir="rtl">אתנחת֑א</span> <span class="nowrap"><span class="tl">Etnachta</span> *</span></td>
+    <td id="etnachta-munach" class="duplicate conj arrow-from-right">(<span class="he" dir="rtl">מנ֣ח</span> <span class="tl">Munach</span>)</td>
+  <td id="tipcha" rowspan="2"><span class="he" dir="rtl">טפח֖א</span> <span class="tl">Tipcha</span></td>
+    <td id="tipcha-mercha" class="conj arrow-from-right" rowspan="2">(<span class="he" dir="rtl">מרכ֥א</span> <span class="tl">Mercha</span>)</td>
+  <td id="tvir" rowspan="2"><span class="he" dir="rtl">תב֛יר</span> <span class="tl">T'vir</span></td>
+    <td id="tvir-darga" class="conj arrow-from-right" rowspan="2">(<span class="he" dir="rtl">דרג֧א</span> <span class="tl">Darga</span>)</td>
 </tr>
 <tr>
-  <td id="sof-pasuk" class="end"><span class="he">סוף־פסֽוק׃</span> <span class="tl nowrap">Sof-pasuk</span></td>
-    <td id="sof-pasuk-mercha" class="duplicate conj arrow-from-right">(<span class="he">מרכ֥א</span> <span class="tl">Mercha</span>)</td>
+  <td id="sof-pasuk" class="end"><span class="he" dir="rtl">סוף־פסֽוק׃</span> <span class="tl nowrap">Sof-pasuk</span></td>
+    <td id="sof-pasuk-mercha" class="duplicate conj arrow-from-right">(<span class="he" dir="rtl">מרכ֥א</span> <span class="tl">Mercha</span>)</td>
 </tr>
 </tbody></table>
 </div>
@@ -145,26 +283,26 @@
   <th colspan="7">Substitutions for an accent ‘by itself’ – i.e. an accent with nothing from its row directly before it</th>
 </tr>
 <tr>
-  <th><span class="he">סגול֒</span> <span class="tl">Segol</span></td>
-    <td id="shalshalet"><span class="he">שלש֓לת</span> <span class="tl">Shalshalet</span></td>
+  <th><span class="he" dir="rtl">סגול֒</span> <span class="tl">Segol</span></td>
+    <td id="shalshalet"><span class="he" dir="rtl">שלש֓לת</span> <span class="tl">Shalshalet</span></td>
     <td class="notes-left">—</td>
   <td></td>
-  <th rowspan="3"><span class="he">קדמ֨א ואזל֜א</span> <br> <span class="nowrap tl">Kadma V'Azla</span></td>
-    <td rowspan="2" id="gershayim"><span class="he">גרש֞ים</span> <span class="tl">Gershayim</span></td>
+  <th rowspan="3"><span class="he" dir="rtl">קדמ֨א ואזל֜א</span> <br> <span class="nowrap tl">Kadma V'Azla</span></td>
+    <td rowspan="2" id="gershayim"><span class="he" dir="rtl">גרש֞ים</span> <span class="tl">Gershayim</span></td>
     <td rowspan="2" class="notes-right">Only on a single word with its final syllable stressed</td>
 </tr>
 <tr>
-  <th><span class="he">זק֔ף</span> <span class="tl">Zakef</span></td>
-    <td id="zakef-gadol"><span class="he">זקף־גד֕ול</span> <span class="tl nowrap">Zakef-gadol</span></td>
+  <th><span class="he" dir="rtl">זק֔ף</span> <span class="tl">Zakef</span></td>
+    <td id="zakef-gadol"><span class="he" dir="rtl">זקף־גד֕ול</span> <span class="tl nowrap">Zakef-gadol</span></td>
     <td class="notes-left">Only on a short word</td>
 </tr>
 <tr>
-  <th><span class="he">פשטא֙</span> <span class="tl">Pashta</span></td>
-    <td id="ytiv"><span class="he">י֚תיב</span> <span class="tl">Ytiv</span></td>
+  <th><span class="he" dir="rtl">פשטא֙</span> <span class="tl">Pashta</span></td>
+    <td id="ytiv"><span class="he" dir="rtl">י֚תיב</span> <span class="tl">Ytiv</span></td>
     <td class="notes-left">Only on a 1-syllable word</td>
     <td></td>
     <!--th-->
-      <td id="azla-geresh"><span class="he">אזלא־ג֜רש</span> <span class="tl nowrap">Azla-geresh</span></td>
+      <td id="azla-geresh"><span class="he" dir="rtl">אזלא־ג֜רש</span> <span class="tl nowrap">Azla-geresh</span></td>
       <td class="notes-right">Only on a short single word</td>
 </tr>
 </tbody></table>
@@ -176,21 +314,21 @@
   <th colspan="7">Less common substitutions</th>
 </tr>
 <tr>
-  <th><span class="he">קדמ֨א ואזל֜א</span> <br> <span class="nowrap tl">Kadma V'Azla</span></td>
-    <td id="kadma" class="conj">(<span class="he">קדמ֨א</span> <span class="tl">Kadma</span>)</td>
+  <th><span class="he" dir="rtl">קדמ֨א ואזל֜א</span> <br> <span class="nowrap tl">Kadma V'Azla</span></td>
+    <td id="kadma" class="conj">(<span class="he" dir="rtl">קדמ֨א</span> <span class="tl">Kadma</span>)</td>
     <td class="notes-left">For musical reasons, about 14% of the time (267 out of 1,889 times in the <span class="tl">Tanakh</span>)</td> <!-- 267 / (510 + 267 + 1112) --> <!-- (69 + 527 + 346 + 2) -->
   <td></td>
-  <th rowspan="2"><span class="he">פז֡ר</span> <span class="tl">Pazer</span></td>
-    <td id="tlisha-gdolah"><span class="he">ת֠לישא־גדולה</span> <br> <span class="tl nowrap">T'lisha-g'dolah</span></td>
-    <td class="notes-right">On a word right before <span class="nowrap tl">Kadma V'Azla</span>, effectively replacing <span class="tl nowrap">T'lisha</span> (266 times in the <span class="tl">Tanakh</span>)</td>
+  <th rowspan="2"><span class="he" dir="rtl">פז֡ר</span> <span class="tl">Pazer</span></td>
+    <td id="tlisha-gdolah"><span class="he" dir="rtl">ת֠לישא־גדולה</span> <br> <span class="tl nowrap">T'lisha-g'dolah</span></td>
+    <td class="notes-right">On a word right before <a class="nowrap tl">Kadma V'Azla</a>, effectively replacing <a href="#kadma-vazla-tlisha" class="tl nowrap">T'lisha</a> (266 times in the <span class="tl">Tanakh</span>)</td>
 </tr>
 <tr>
-  <th><span class="he">תב֛יר</span> <span class="tl">T'vir</span></td>
-    <td id="mercha-kfulah" class="conj">(<span class="he">מֵרְכָא־כְּפוּלָ֦ה</span> <br> <span class="tl nowrap">Mercha-k'fulah</span>)</td>
-    <td class="notes-left">On a word right after <span class="tl">Darga</span> and right before <span class="tl">Tipcha</span>, effectively replacing <span class="tl">Mercha</span> (5 times in the <span class="tl">Tanakh</span>)</td> <!-- 267 / (510 + 267 + 1112) -->
+  <th><span class="he" dir="rtl">תב֛יר</span> <span class="tl">T'vir</span></td>
+    <td id="mercha-kfulah" class="conj">(<span class="he" dir="rtl">מֵרְכָא־כְּפוּלָ֦ה</span> <br> <span class="tl nowrap">Mercha-k'fulah</span>)</td>
+    <td class="notes-left">On a word right after <a href="#tvir-darga" class="tl">Darga</a> and right before <a href="#tipcha" class="tl">Tipcha</a>, effectively replacing <a href="#tipcha-mercha" class="tl">Mercha</a> (5 times in the <span class="tl">Tanakh</span>)</td> <!-- 267 / (510 + 267 + 1112) -->
   <td></td>
   <!--th-->
-    <td id="galgal-karne-farah"><span class="he">גלג֪ל קרני־פר֟ה</span> <br> <span class="tl nowrap">Galgal Karne-farah</span></td>
+    <td id="galgal-karne-farah"><span class="he" dir="rtl">גלג֪ל קרני־פר֟ה</span> <br> <span class="tl nowrap">Galgal Karne-farah</span></td>
     <td class="notes-right">For emphasis, about 4% of the time (16 out of 436 times in the <span class="tl">Tanakh</span>)</td> <!-- 16 / (154 + 16 + 266) -->
 </tr>
 </tbody></table>
@@ -199,7 +337,7 @@
 </div>
 
 <div class="opening-text">
-<h2>Understanding the System of Hebrew Accents</h2>
+<!-- <h2>Understanding the System of Hebrew Accents</h2>
 
 <p>
   <b>Analogy:</b> In a long verse, the accents at the ends of their respective rows have the following approximate correspondences in English punctuation:
@@ -215,7 +353,8 @@
     The <b>conjuctive accents</b> (those in parentheses) are used to mark words within a <b>phrase</b>.
   </li></ul>
   In shorter verses, this correspondence often shifts up, e.g. with <span class="tl">Etnachta</span> corresponding to a <b>comma</b> or even an <b>unmarked boundary</b> in an extremely short verse.
-</p><p>
+</p> -->
+<p>
   <b>Example 1:</b> Below is Genesis 7:11 and its translation laid out with a line break
   every time a “jump” happens (i.e. an accent on the end of its row is reached).
   This makes it easy to spot the correspondences described above.
@@ -259,7 +398,7 @@
 <div class="opening-text">
 <p>
   <b>Example 2:</b> The classic example of accents changing the apparent meaning of the text is Isaiah 40:3.
-  The King James Version translates this line as: “The voice of him that crieth in the wilderness, Prepare ye the way of the LORD, make straight in the desert a highway for our God.”
+  The King James Version translates this line as: “The voice of him that crieth in the wilderness, Prepare ye the way of the <span class="small-caps">Lord</span>, make straight in the desert a highway for our God.”
   In particular, “in the wilderness” is grouped together with the phrase about a voice crying out.
   Most modern translations instead look something like the following:
 </p>
@@ -296,28 +435,28 @@
 
 <div class="opening-text">
   <p>
-    “In the wilderness” has the accent <span class="nowrap tl">T'lisha-g'dolah</span>,
+    “In the wilderness” has the accent <a href="#zakef-gadol" class="nowrap tl">Zakef-gadol</a>,
     an accent which does not go together with anything else by definition.
     This suggests that “in the wilderness” should at least be separated with a comma from what comes before it.
     Although it could in theory still be in reference to the voice (just separated for poetic or rhetorical effect),
-    the strong parallelism of road and desert imagery of the final four phrases of this verse make that seem unlikely to me.
+    the strong parallelism of road and desert imagery of the final four phrases of this verse makes that seem unlikely to me.
     The indentation is added to make the parallelism easier to spot.
   </p>
 </div>
 
 <div class="opening-text">
-<h2>Accents in the Three Poetic Books</h2>
+<h2 id="poetic">Accents in the Three Poetic Books</h2>
 <p>
   The poetic books of Psalms, Proverbs, and Job use a distinct system of accents.
   Although some of the same symbols are used, they mostly function in different ways.
-  (Thus, a different font is used to keep the two systems visually distinct.)
+  <!-- (Thus, a different font is used to keep the two systems visually distinct.) -->
   A different system is necessary because of the unique structure of Hebrew poetry.
   For example, verses of Hebrew poetry are often made up of three parallel verselets.
-  <span class="tl">Ole V'Yored</span> was therefore added as a parallel accent to <span class="tl">Etnachta</span> –
+  <a href="#ole-vyored-3" class="tl">Ole V'Yored</a> was therefore added as a parallel accent to <a href="#etnachta-3" class="tl">Etnachta</a> –
   together, the two can divide a verse into three equal parts.
 </p><p>
   In general, this system has many more exceptions and special cases than the above.
-  For example, <span class="nowrap tl">Mapach-l'garmeh</span> can be inserted before nearly every other accent,
+  For example, <a href="#mapach-lgarmeh-3" class="nowrap tl">Mapach-l'garmeh</a> can be inserted before nearly every other accent,
   transcending its place in the hierarchy.
   Some of these accents also have conjunctive forms,
   and there are other conjunctive accents that exist which are not listed here.
@@ -343,42 +482,42 @@
       <td class="conj"></td>
     <td></td>
       <td class="conj"></td>
-    <td id="pazer-3" class="end"><span class="he">פז֡ר</span> <span class="tl">Pazer</span></td>
-      <td id="pazer-galgal-3" class="conj">(<span class="he">גלג֪ל</span> <span class="tl">Galgal</span>)</td>
+    <td id="pazer-3" class="end"><span class="he" dir="rtl">פז֡ר</span> <span class="tl">Pazer</span></td>
+      <td id="pazer-galgal-3" class="conj">(<span class="he" dir="rtl">גלג֪ל</span> <span class="tl">Galgal</span>)</td>
   </tr>
   <tr>
     <td></td>
       <!-- <td class="conj"></td> -->
     <td></td>
       <td class="conj"></td>
-    <td id="rvia-gadol-3" class="end"><span class="he">רביע־גד֗ול</span> <span class="nowrap tl">R'via-gadol</span></td>
-      <td id="rvia-gadol-ilui-3" class="conj arrow-from-right">(<span class="he">עלוי֬</span> <span class="tl">Ilui</span>)</td>
+    <td id="rvia-gadol-3" class="end"><span class="he" dir="rtl">רביע־גד֗ול</span> <span class="nowrap tl">R'via-gadol</span></td>
+      <td id="rvia-gadol-ilui-3" class="conj arrow-from-right">(<span class="he" dir="rtl">עלוי֬</span> <span class="tl">Ilui</span>)</td>
     <td id="lgarmeh-3" rowspan="4" colspan="2">
-      <span class="he">אזלא־לגרמ֨ה׀</span> <span class="nowrap"><span class="tl">Azla-l'garmeh</span></span>
+      <span id="azla-lgarmeh-3"><span class="he" dir="rtl">אזלא־לגרמ֨ה׀</span> <span class="nowrap"><span class="tl">Azla-l'garmeh</span></span></span>
       <br>or<br>
-      <span class="he">מהפך־לגרמ֤ה׀</span> <span class="nowrap"><span class="tl">Mapach-l'garmeh</span> †</span>
+      <span id="mapach-lgarmeh-3"><span class="he" dir="rtl">מהפך־לגרמ֤ה׀</span> <span class="nowrap"><span class="tl">Mapach-l'garmeh</span> †</span></span>
     </td>
   </tr>
   <tr>
     <td></td>
       <!-- <td class="conj"></td> -->
-    <td id="ole-vyored-3" class="end"><span class="he">עול֫ה ויור֥ד</span> <span class="nowrap"><span class="nowrap tl">Ole V'Yored</span> *</span></td>
-      <td id="ole-vyored-etnach-hafuch-3" class="conj arrow-from-right">(<span class="he">אתנח־הפוך֢</span> <span class="nowrap tl">Etnach-hafuch</span>)</td>
-    <td id="tzinor-3"><span class="he">צנור֮</span> <span class="tl">Tzinor</span></td>
-      <td id="tzinor-munach-3" class="duplicate conj arrow-from-right">(<span class="he">מנ֣ח</span> <span class="tl">Munach</span>)</td>
+    <td id="ole-vyored-3" class="end"><span class="he" dir="rtl">עול֫ה ויור֥ד</span> <span class="nowrap"><span class="nowrap tl">Ole V'Yored</span> *</span></td>
+      <td id="ole-vyored-etnach-hafuch-3" class="conj arrow-from-right">(<span class="he" dir="rtl">אתנח־הפוך֢</span> <span class="nowrap tl">Etnach-hafuch</span>)</td>
+    <td id="tzinor-3"><span class="he" dir="rtl">צנור֮</span> <span class="tl">Tzinor</span></td>
+      <td id="tzinor-munach-3" class="duplicate conj arrow-from-right">(<span class="he" dir="rtl">מנ֣ח</span> <span class="tl">Munach</span>)</td>
   </tr>
   <tr>
     <td></td>
       <!-- <td class="conj"></td> -->
-    <td id="etnachta-3" class="end"><span class="he">אתנחת֑א</span> <span class="nowrap"><span class="tl">Etnachta</span> *</span></td>
-      <td id="etnachta-munach-3" class="duplicate conj arrow-from-right">(<span class="he">מנ֣ח</span> <span class="tl">Munach</span>)</td>
-    <td id="dechi-3" rowspan="2"><span class="he">דחי֭</span> <span class="tl">Dechi</span></td>
-      <td id="dechi-munach-3" class="conj arrow-from-right" rowspan="2">(<span class="he">מנ֣ח</span> <span class="tl">Munach</span>)</td>
+    <td id="etnachta-3" class="end"><span class="he" dir="rtl">אתנחת֑א</span> <span class="nowrap"><span class="tl">Etnachta</span> *</span></td>
+      <td id="etnachta-munach-3" class="duplicate conj arrow-from-right">(<span class="he" dir="rtl">מנ֣ח</span> <span class="tl">Munach</span>)</td>
+    <td id="dechi-3" rowspan="2"><span class="he" dir="rtl">דחי֭</span> <span class="tl">Dechi</span></td>
+      <td id="dechi-munach-3" class="conj arrow-from-right" rowspan="2">(<span class="he" dir="rtl">מנ֣ח</span> <span class="tl">Munach</span>)</td>
   </tr>
   <tr>
-    <td id="sof-pasuk-3" class="end"><span class="he">סוף־פסֽוק׃</span> <span class="tl nowrap">Sof-pasuk</span></td>
-    <td id="rvia-mugrash-3" class="arrow-to-left"><span class="he">ר֝ביע־מגר֗ש</span> <span class="nowrap tl">R'via-mugrash</span></td>
-      <td id="rvia-mugrash-mercha-3" class="conj arrow-from-right">(<span class="he">מרכ֥א</span> <span class="tl">Mercha</span>)</td>
+    <td id="sof-pasuk-3" class="end"><span class="he" dir="rtl">סוף־פסֽוק׃</span> <span class="tl nowrap">Sof-pasuk</span></td>
+    <td id="rvia-mugrash-3" class="arrow-to-left"><span class="he" dir="rtl">ר֝ביע־מגר֗ש</span> <span class="nowrap tl">R'via-mugrash</span></td>
+      <td id="rvia-mugrash-mercha-3" class="conj arrow-from-right">(<span class="he" dir="rtl">מרכ֥א</span> <span class="tl">Mercha</span>)</td>
   </tr>
   </tbody></table>
   </div>
@@ -389,12 +528,12 @@
     <th colspan="7">Substitutions</th>
   </tr>
   <tr>
-    <th><span class="he">ר֝ביע־מגר֗ש</span> <br> <span class="nowrap tl">R'via-mugrash</span></td>
-      <td id="shalshalet-gadol-3"><span class="he">שלשלת־גד֓ול׀</span> <br> <span class="tl">Shalshalet Gadol</span></td>
+    <th><span class="he" dir="rtl">ר֝ביע־מגר֗ש</span> <br> <span class="nowrap tl">R'via-mugrash</span></td>
+      <td id="shalshalet-gadol-3"><span class="he" dir="rtl">שלשלת־גד֓ול׀</span> <br> <span class="tl">Shalshalet Gadol</span></td>
       <td class="notes-left">For musical reasons, about 1% of the time (31 out of 2,527 times in the <span class="tl">Tanakh</span>)</td> <!-- 31 / (1249 + 1247 + 31) -->
     <td></td>
-    <th><span class="he">צנור֮</span> <span class="tl">Tzinor</span></td>
-      <td id="rvia-3"><span class="he">רב֗יע</span> <span class="tl">R'via</span></td>
+    <th><span class="he" dir="rtl">צנור֮</span> <span class="tl">Tzinor</span></td>
+      <td id="rvia-3"><span class="he" dir="rtl">רב֗יע</span> <span class="tl">R'via</span></td>
       <td class="notes-right">When by itself</td>
   </tr>
   </tbody></table>
