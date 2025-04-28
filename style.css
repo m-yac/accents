@@ -159,6 +159,7 @@ td:hover, td:active {
 }
 
 #correspondences {
+  margin-bottom: 0;
   width: 100%;
 }
 #correspondences td {
