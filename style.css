@@ -165,8 +165,8 @@ td:hover, td:active {
   border: none;
 }
 #correspondences .notes-left {
-  min-width: 470px;
-  max-width: 570px;
+  min-width: 580px;
+  max-width: 680px;
   text-align: left;
 }
 
@@ -227,19 +227,19 @@ td:has(.long-phrase) {
 .short-phrase::after {
   top: 120%;
   border-top: 1px solid;
-  content: "short phrase";
+  content: "phrase";
 }
 .long-phrase::after {
   top: 220%;
   border-top: 2.5px double;
-  content: "long phrase";
+  content: "clause";
 }
-.abbr.short-phrase::after {
+/* .abbr.short-phrase::after {
   content: "short";
 }
 .abbr.long-phrase::after {
   content: "long";
-}
+} */
 
 .conj {
   /* color: #555; */
