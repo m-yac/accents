@@ -1,9 +1,10 @@
 
 tbls = [[
-  ["pazer", "lgarmeh", "kadma-vazla", "kadma-vazla", "kadma-vazla", "kadma-vazla", "kadma-vazla"],
-  [None,    "rvia",    "rvia",        "zarka",       "pashta",      "tvir",        "tvir"       ],
-  [None,    None,      None,          "segol",       "zakef",       "tipcha",      "tipcha"     ],
-  [None,    None,      None,          None,          None,          "etnachta",    "sof-pasuk"  ],
+  [None,    "kadma-vazla", None,          None,          None,          None,          None],
+  ["pazer", "lgarmeh",     "kadma-vazla", "kadma-vazla", "kadma-vazla", "kadma-vazla", "kadma-vazla"],
+  [None,    "rvia",        "rvia",        "zarka",       "pashta",      "tvir",        "tvir"       ],
+  [None,    None,          None,          "segol",       "zakef",       "tipcha",      "tipcha"     ],
+  [None,    None,          None,          None,          None,          "etnachta",    "sof-pasuk"  ],
 ], [
   ["pazer-3", "lgarmeh-3",    "lgarmeh-3",    "lgarmeh-3",  "lgarmeh-3"     ],
   [None,      "rvia-gadol-3", "tzinor-3",     "dechi-3",    "dechi-3"       ],
@@ -12,25 +13,25 @@ tbls = [[
 ]]
 
 conjs = {
-  "pazer":       "pazer-munach",       "galgal-karne-farah": "pazer-munach",
-  "lgarmeh":     "lgarmeh-mercha",
-  "kadma-vazla": "kadma-vazla-tlisha", "kadma": "kadma-vazla-tlisha",
-  "rvia":        "rvia-munach",
-  "zarka":       "zarka-munach",
-  "pashta":      "pashta-mapach",
-  "tvir":        "tvir-darga",         "mercha-kfulah": "tvir-darga",
-  "segol":       "segol-munach",
-  "zakef":       "zakef-munach",
-  "tipcha":      "tipcha-mercha",
-  "etnachta":    "etnachta-munach",
-  "sof-pasuk":   "sof-pasuk-mercha",
-  "pazer-3":        "pazer-galgal-3",
-  "rvia-gadol-3":   "rvia-gadol-ilui-3",
-  "tzinor-3":       "tzinor-munach-3",
-  "dechi-3":        "dechi-munach-3",
-  "ole-vyored-3":   "ole-vyored-etnach-hafuch-3",
-  "etnachta-3":     "etnachta-munach-3",
-  "rvia-mugrash-3": "rvia-mugrash-mercha-3", "shalshalet-gadol-3": "rvia-mugrash-mercha-3",
+  "pazer":       { "pazer-munach" }, "galgal-karne-farah": { "pazer-munach" },
+  "lgarmeh":     { "lgarmeh-mercha" },
+  "kadma-vazla": { "kadma-vazla-tlisha" }, "kadma": { "kadma-vazla-tlisha" },
+  "rvia":        { "rvia-munach" },
+  "zarka":       { "zarka-munach", "sub-mercha" },
+  "pashta":      { "pashta-mapach", "sub-mercha" },
+  "tvir":        { "tvir-darga", "sub-mercha" }, "mercha-kfulah": { "tvir-darga" },
+  "segol":       { "segol-munach" },
+  "zakef":       { "zakef-munach" },
+  "tipcha":      { "tipcha-mercha" },
+  "etnachta":    { "etnachta-munach" },
+  "sof-pasuk":   { "sof-pasuk-mercha" },
+  "pazer-3":        { "pazer-galgal-3" },
+  "rvia-gadol-3":   { "rvia-gadol-ilui-3" },
+  "tzinor-3":       { "tzinor-munach-3" },
+  "dechi-3":        { "dechi-munach-3" },
+  "ole-vyored-3":   { "ole-vyored-etnach-hafuch-3" },
+  "etnachta-3":     { "etnachta-munach-3" },
+  "rvia-mugrash-3": { "rvia-mugrash-mercha-3" }, "shalshelet-gadol-3": { "rvia-mugrash-mercha-3" },
 }
 
 asterisks = [[[2, 3], [3, 5]],
@@ -41,13 +42,13 @@ def asterisk_applies(ix, col, row, new_row):
   return False
 
 alone_subs = {
-  "segol":       { "shalshalet" },
+  "segol":       { "shalshelet" },
   "zakef":       { "zakef-gadol" },
   "pashta":      { "ytiv" },
   "tvir":        { "mercha-kfulah" },
   "pazer":       { "tlisha-gdolah", "galgal-karne-farah" },
   "kadma-vazla": { "gershayim", "azla-geresh", "kadma" },
-  "rvia-mugrash-3": { "shalshalet-gadol-3" },
+  "rvia-mugrash-3": { "shalshelet-gadol-3" },
   "tzinor-3":       { "rvia-3" },
 }
 special_alone_subs = {
@@ -63,16 +64,21 @@ colors = [
 ]
 
 
-all_disj = { d for ix in range(0, len(tbls)) \
-               for col in range(0, len(tbls[ix])) \
-               for d in tbls[ix][col] if d is not None }
+all_accents = { d for ix in range(0, len(tbls)) \
+                  for col in range(0, len(tbls[ix])) \
+                  for d in tbls[ix][col] if d is not None }
+all_accents |= { d for d in conjs }
+all_accents |= { c for d in conjs for c in conjs[d] }
+all_accents |= { q for d in alone_subs for q in alone_subs[d] }
 
-parents_direct  = { d: set() for d in all_disj } | { d: { conjs[d] } for d in conjs } | { conjs[d]: set() for d in conjs } | { q: set() for d in alone_subs for q in alone_subs[d] }
-children_direct = { d: set() for d in all_disj } | { d: set()        for d in conjs } | { conjs[d]: set() for d in conjs } | { q: set() for d in alone_subs for q in alone_subs[d] }
-parents_jumps   = { d: set() for d in all_disj } | { d: set()        for d in conjs } | { conjs[d]: set() for d in conjs } | { q: set() for d in alone_subs for q in alone_subs[d] }
+parents_direct  = { p: set() for p in all_accents }
+children_direct = { p: set() for p in all_accents }
+parents_jumps   = { p: set() for p in all_accents }
 
 for d in conjs:
-  children_direct[conjs[d]] |= { q for q in conjs if conjs[q] == conjs[d] }
+  for c in conjs[d]:
+    parents_direct[d].add(c)
+    children_direct[c] |= { d1 for d1 in conjs if c in conjs[d1] }
 
 for ix in range(0, len(tbls)):
   tbl = tbls[ix]
@@ -83,12 +89,15 @@ for ix in range(0, len(tbls)):
         if col < len(tbl)-1 and tbl[col+1][row] is not None:
           d = tbl[col+1][row]
           parents_direct[d].add(tbl[col][row])
-          if d in conjs: parents_direct[conjs[d]].add(tbl[col][row])
+          for c in conjs.get(d, set()):
+            parents_direct[c].add(tbl[col][row])
           if tbl[col][row] in alone_subs:
             parents_direct[d] |= alone_subs[tbl[col][row]]
-            if d in conjs: parents_direct[conjs[d]] |= alone_subs[tbl[col][row]]
+            for c in conjs.get(d, set()):
+              parents_direct[c] |= alone_subs[tbl[col][row]]
           children_direct[tbl[col][row]].add(d)
-          if d in conjs: children_direct[tbl[col][row]].add(conjs[d])
+          for c in conjs.get(d, set()):
+            children_direct[tbl[col][row]].add(c)
         else:
           for new_col in range(0, col+1):
             for new_row in range(0, len(tbl[new_col])):
@@ -97,13 +106,15 @@ for ix in range(0, len(tbls)):
               if tbl[new_col][new_row] is not None:
                 d = tbl[new_col][new_row]
                 parents_jumps[d].add(tbl[col][row])
-                if d in conjs: parents_jumps[conjs[d]].add(tbl[col][row])
+                for c in conjs.get(d, set()):
+                  parents_jumps[c].add(tbl[col][row])
                 if d in alone_subs:
                   for q in alone_subs[d]:
                     parents_jumps[q].add(tbl[col][row])
                 if tbl[col][row] in alone_subs and tbl[col][row] not in special_alone_subs:
                   parents_jumps[d] |= alone_subs[tbl[col][row]]
-                  if d in conjs: parents_jumps[conjs[d]] |= alone_subs[tbl[col][row]]
+                  for c in conjs.get(d, set()):
+                    parents_jumps[c] |= alone_subs[tbl[col][row]]
 
   future_parents = { p: set(parents_direct[p]) for p in parents_direct }
   for _ in range(0, len(tbl)-1):
@@ -126,13 +137,17 @@ parents = { p: parents_direct[p] | parents_jumps[p] for p in parents_direct }
 parents_which_are_also_past_children = { p: parents_jumps[p] & past_children[p] for p in parents_direct if p in past_children }
 
 equated = { p: { p } for p in parents_direct }
+for d in conjs:
+  for c in conjs[d]:
+    equated[c] |= conjs[d]
 for p in alone_subs:
   equated[p] |= alone_subs[p]
   for q in alone_subs[p]:
     equated[q] = { p, q }
 
 # The example - unrelated to cantillation
-num_words = [[4, 2, 3, 2, 4, 3],
+num_words = [[2, 3, 1, 2, 3, 3, 2], # [4, 2, 3, 2, 4, 3],
+             [3, 2, 5, 7, 3, 2],
              [2, 1, 3, 2, 2],
              [1, 5, 4, 4],
              [9], [7], [4, 2, 1], [4, 2, 1]]

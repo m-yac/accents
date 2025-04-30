@@ -85,12 +85,16 @@ ul {
 }
 .container {
   display: inline-block;
-  margin-left: auto;
   text-align: center;
 }
-.bottom-container {
-  display: inline;
+.outer.container {
   width: 100%;
+}
+.multi-container {
+  width: 100%;
+  display: flex;
+  justify-content: space-evenly;
+  column-gap: 10px;
 }
 .flex-container {
   display: flex;
@@ -123,34 +127,28 @@ th:has(+ td) {
 td {
   position: relative;
 }
-td:empty {
+td:empty, th:empty {
   border-bottom: none;
   border-top: none;
+  background: none;
 }
-td:hover, td:active {
+/* td:hover, td:active {
   -webkit-text-stroke: 2pt rgba(255, 255, 255, 15%);
   paint-order: stroke fill;
-}
+} */
 @keyframes hilite {
   100% { text-shadow: 1px 1px 10px rgba(255, 255, 255, 0%); }
 }
 
 #subsTable .notes-left {
-  min-width: 70px;
-  max-width: 170px;
+  text-align: left;
+  min-width: 110px;
+  max-width: 210px;
 }
 #subsTable .notes-right {
-  min-width:  80px;
-  max-width: 180px;
-}
-
-#lessCommonSubsTable .notes-left {
-  min-width: 170px;
-  max-width: 270px;
-}
-#lessCommonSubsTable .notes-right {
-  min-width: 130px;
-  max-width: 230px;
+  text-align: left;
+  min-width: 100px;
+  max-width: 200px;
 }
 
 #subsTable-3 .notes-left {
@@ -247,10 +245,17 @@ td:has(.long-phrase) {
   border-left: 1px solid #eee;
 }
 .duplicate {
-  color: #888;
+  opacity: 50%;
 }
 td:has(+ .conj) {
   border-right: none;
+}
+
+.semi-above {
+  border-bottom: 1px dashed #aaa;
+}
+.semi-below {
+  border-top: 1px dashed #aaa;
 }
 
 .he {
