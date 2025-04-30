@@ -15,13 +15,13 @@ extra_jumps = [
 ]
 
 conjs = {
-  "pazer":       { "pazer-munach" }, "galgal-karne-farah": { "pazer-munach" },
+  "pazer":       { "pazer-munach" },
   "lgarmeh":     { "lgarmeh-mercha" },
-  "kadma-vazla": { "kadma-vazla-tlisha" }, "kadma": { "kadma-vazla-tlisha" },
+  "kadma-vazla": { "kadma-vazla-tlisha" },
   "rvia":        { "rvia-munach" },
   "zarka":       { "zarka-munach", "sub-mercha" },
   "pashta":      { "pashta-mapach", "sub-mercha" },
-  "tvir":        { "tvir-darga", "sub-mercha" }, "mercha-kfulah": { "tvir-darga" },
+  "tvir":        { "tvir-darga", "sub-mercha" },
   "segol":       { "segol-munach" },
   "zakef":       { "zakef-munach" },
   "tipcha":      { "tipcha-mercha" },
@@ -33,7 +33,7 @@ conjs = {
   "dechi-3":        { "dechi-munach-3" },
   "ole-vyored-3":   { "ole-vyored-etnach-hafuch-3" },
   "etnachta-3":     { "etnachta-munach-3" },
-  "rvia-mugrash-3": { "rvia-mugrash-mercha-3" }, "shalshelet-gadol-3": { "rvia-mugrash-mercha-3" },
+  "rvia-mugrash-3": { "rvia-mugrash-mercha-3" },
 }
 
 asterisks = [[[2, 3], [3, 5]],
@@ -43,19 +43,22 @@ def asterisk_applies(ix, col, row, new_row):
     if col >= ast_col and new_row == ast_row and row >= new_row: return True
   return False
 
-alone_subs = {
-  "segol":       { "shalshelet" },
-  "zakef":       { "zakef-gadol" },
-  "pashta":      { "ytiv" },
-  "tvir":        { "mercha-kfulah" },
-  "pazer":       { "tlisha-gdolah", "galgal-karne-farah" },
-  "kadma-vazla": { "gershayim", "azla-geresh", "kadma" },
-  "rvia-mugrash-3": { "shalshelet-gadol-3" },
-  "tzinor-3":       { "rvia-3" },
+subs = {
+  "segol":          { "shalshelet":         { "parents": set() } },
+  "zakef":          { "zakef-gadol":        { "parents": set() } },
+  "pashta":         { "ytiv":               { "parents": set() } },
+  "tvir":           { "mercha-kfulah":      { "parents": { "tvir-darga" }, "children": { "tipcha" }, "parents_jumps": set(),
+                                              "equated": { "tipcha-mercha" } } },
+  "kadma-vazla":    { "kadma":              {},
+                      "gershayim":          { "parents": set() },
+                      "azla-geresh":        { "parents": set() } },
+  "pazer":          { "tlisha-gdolah":      { "children_jumps": { "kadma-vazla" },
+                                              "equated": { "kadma-vazla-tlisha" } },
+                      "galgal-karne-farah": {} },
+  "rvia-mugrash-3": { "shalshelet-gadol-3": {} },
+  "tzinor-3":       { "rvia-3":             { "parents": set() } },
 }
-special_alone_subs = {
-  "pazer": { "alone": "tlisha-gdolah", "parents": ["kadma-vazla"], "children": ["pazer-munach"] },
-}
+
 
 colors = [
   "var(--past-accent-color)",
@@ -71,7 +74,7 @@ all_accents = { d for ix in range(0, len(tbls)) \
                   for d in tbls[ix][col] if d is not None }
 all_accents |= { d for d in conjs }
 all_accents |= { c for d in conjs for c in conjs[d] }
-all_accents |= { q for d in alone_subs for q in alone_subs[d] }
+all_accents |= { s for d in subs for s in subs[d] }
 
 parents_direct  = { p: set() for p in all_accents }
 children_direct = { p: set() for p in all_accents }
@@ -87,41 +90,44 @@ for ix in range(0, len(tbls)):
 
   for col in range(0, len(tbl)):
     for row in range(0, len(tbl[col])):
-      if tbl[col][row] is not None:
-        if col < len(tbl)-1 and tbl[col+1][row] is not None:
-          d = tbl[col+1][row]
-          parents_direct[d].add(tbl[col][row])
-          for c in conjs.get(d, set()):
-            parents_direct[c].add(tbl[col][row])
-          if tbl[col][row] in alone_subs:
-            parents_direct[d] |= alone_subs[tbl[col][row]]
-            for c in conjs.get(d, set()):
-              parents_direct[c] |= alone_subs[tbl[col][row]]
-          children_direct[tbl[col][row]].add(d)
-          for c in conjs.get(d, set()):
-            children_direct[tbl[col][row]].add(c)
-        else:
-          for new_col in range(0, col+1):
-            for new_row in range(0, len(tbl[new_col])):
-              if row < len(tbl[new_col])-1 and asterisk_applies(ix, col, row, new_row):
-                continue;
-              if tbl[new_col][new_row] is not None:
-                d = tbl[new_col][new_row]
-                parents_jumps[d].add(tbl[col][row])
-                for c in conjs.get(d, set()):
-                  parents_jumps[c].add(tbl[col][row])
-                if d in alone_subs:
-                  for q in alone_subs[d]:
-                    parents_jumps[q].add(tbl[col][row])
-                if tbl[col][row] in alone_subs and tbl[col][row] not in special_alone_subs:
-                  parents_jumps[d] |= alone_subs[tbl[col][row]]
-                  for c in conjs.get(d, set()):
-                    parents_jumps[c] |= alone_subs[tbl[col][row]]
+      d = tbl[col][row]
+      if d is None:
+        continue
+      if col < len(tbl)-1 and tbl[col+1][row] is not None:
+        d1 = tbl[col+1][row]
+        parents_direct[d1].add(d)
+        for c in conjs.get(d1, set()):
+          parents_direct[c].add(d)
+        children_direct[d].add(d1)
+        for c in conjs.get(d1, set()):
+          children_direct[d].add(c)
+      else:
+        for new_col in range(0, col+1):
+          for new_row in range(0, len(tbl[new_col])):
+            if row < len(tbl[new_col])-1 and asterisk_applies(ix, col, row, new_row):
+              continue;
+            if tbl[new_col][new_row] is not None:
+              d1 = tbl[new_col][new_row]
+              parents_jumps[d1].add(d)
+              for c in conjs.get(d1, set()):
+                parents_jumps[c].add(d)
 
   for [d1, d2] in extra_jumps:
     parents_jumps[d2].add(d1)
     for c in conjs.get(d2, set()):
       parents_jumps[c].add(d1)
+
+  for d in subs:
+    for s in subs[d]:
+      parents_direct[s] = subs[d][s].get("parents", parents_direct[d])
+      children_direct[s] = subs[d][s].get("children", children_direct[d])
+      parents_jumps[s] = subs[d][s].get("parents_jumps", parents_jumps[d])
+  for p in parents_direct:
+    parents_direct[p] |= { s for d in subs if d in parents_direct[p] for s in subs[d] if p in subs[d][s].get("children", {p}) }
+  for p in children_direct:
+    children_direct[p] |= { s for d in subs if d in children_direct[p] for s in subs[d] if p in subs[d][s].get("parents", {p}) }
+  for p in parents_jumps:
+    parents_jumps[p] |= { s for d in subs if d in parents_jumps[p] for s in subs[d] if p in subs[d][s].get("children_jumps", {p}) }
 
   future_parents = { p: set(parents_direct[p]) for p in parents_direct }
   for _ in range(0, len(tbl)-1):
@@ -133,12 +139,6 @@ for ix in range(0, len(tbls)):
     for p in past_children:
       past_children[p].update(*(children_direct[q] for q in past_children[p]))
 
-for p in special_alone_subs:
-  for q in special_alone_subs[p]["parents"]:
-    parents_jumps[q].add(special_alone_subs[p]["alone"])
-  for q in special_alone_subs[p]["children"]:
-    past_children[q].add(special_alone_subs[p]["alone"])
-
 strictly_future_parents = { p: future_parents[p] - parents_direct[p] for p in future_parents }
 parents = { p: parents_direct[p] | parents_jumps[p] for p in parents_direct }
 parents_which_are_also_past_children = { p: parents_jumps[p] & past_children[p] for p in parents_direct if p in past_children }
@@ -147,10 +147,14 @@ equated = { p: { p } for p in parents_direct }
 for d in conjs:
   for c in conjs[d]:
     equated[c] |= conjs[d]
-for p in alone_subs:
-  equated[p] |= alone_subs[p]
-  for q in alone_subs[p]:
-    equated[q] = { p, q }
+for d in subs:
+  for s in subs[d]:
+    equated[d] |= { s }
+    equated[s] |= { d }
+    for q in subs[d][s].get("equated", set()):
+      equated[q] |= { s }
+      equated[s] |= { q }
+
 
 # The example - unrelated to cantillation
 num_words = [[2, 3, 1, 2, 3, 3, 2], # [4, 2, 3, 2, 4, 3],
