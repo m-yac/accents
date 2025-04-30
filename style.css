@@ -147,7 +147,7 @@ td:empty, th:empty {
 }
 #subsTable .notes-right {
   text-align: left;
-  min-width: 100px;
+  min-width:  80px;
   max-width: 200px;
 }
 
@@ -172,7 +172,7 @@ td:empty, th:empty {
 
 .he-example, .en-example, .he-en-example {
   margin-bottom: 0;
-  white-space: nowrap;
+  /* white-space: nowrap; */
   min-width: 50%;
 }
 .en-example {
@@ -195,7 +195,7 @@ td:empty, th:empty {
 .container:has(> .he-example), .container:has(> .en-example), .container:has(> .he-en-example) {
   display: flex;
   justify-content: center;
-  flex-wrap: wrap;
+  /* flex-wrap: wrap; */
 }
 
 td:has(.unm-short-phrase) {
@@ -279,7 +279,7 @@ td:has(+ .end) {
   border-bottom: none;
 }
 
-.arrow-from-right::before, .arrow-to-left::before, .arrow-top-to-left::before {
+.arrow::before {
   content: url('data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="12px" height="10px" fill="transparent" stroke="black" stroke-width="1.5" stroke-linecap="round"%3E%3Cpath d="M4.5 2.5 L2 5 L4.5 7.5"/%3E%3Cpath d="M2 5 H10"/%3E%3C/svg%3E%0A');
   position: absolute;
   height: 100%;
@@ -289,13 +289,21 @@ td:has(+ .end) {
   align-items: center;
   justify-content: center;
 }
-.arrow-from-right::before {
-  right: -6px;
+.arrow.from-right::before {
+  right: -7px;
 }
-.arrow-to-left::before {
+.arrow.to-left::before {
   left: -6px;
 }
-.arrow-top-to-left::before {
+.arrow.top-half-to-left::before {
+  height: 50%;
+  left: -6px;
+}
+.arrow.top-quarter-to-left::before {
+  height: 25%;
+  left: -6px;
+}
+.arrow.top-to-left::before {
   height: 32px;
   left: -6px;
 }
