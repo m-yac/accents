@@ -251,13 +251,6 @@ td:has(+ .conj) {
   border-right: none;
 }
 
-.semi-above {
-  border-bottom: 1px dashed #aaa;
-}
-.semi-below {
-  border-top: 1px dashed #aaa;
-}
-
 .he {
   font-family: 'SBLHebrew';
   font-size: 150%;
@@ -276,8 +269,14 @@ td:has(+ .conj) {
 .end {
   border-left: 1.5px solid black;
 }
+.end-below {
+  border-top: 1.5px dashed black;
+}
 td:has(+ .end) {
   border-right: none;
+}
+.end-above {
+  border-bottom: none;
 }
 
 .arrow-from-right::before, .arrow-to-left::before, .arrow-top-to-left::before {

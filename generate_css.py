@@ -1,16 +1,18 @@
 
 tbls = [[
-  [None,    "kadma-vazla", None,          None,          None,          None,          None],
-  ["pazer", "lgarmeh",     "kadma-vazla", "kadma-vazla", "kadma-vazla", "kadma-vazla", "kadma-vazla"],
-  [None,    "rvia",        "rvia",        "zarka",       "pashta",      "tvir",        "tvir"       ],
-  [None,    None,          None,          "segol",       "zakef",       "tipcha",      "tipcha"     ],
-  [None,    None,          None,          None,          None,          "etnachta",    "sof-pasuk"  ],
+  ["pazer", "lgarmeh", "kadma-vazla", "kadma-vazla", "kadma-vazla", "kadma-vazla", "kadma-vazla"],
+  [None,    "rvia",    "rvia",        "zarka",       "pashta",      "tvir",        "tvir"       ],
+  [None,    None,      None,          "segol",       "zakef",       "tipcha",      "tipcha"     ],
+  [None,    None,      None,          None,          None,          "etnachta",    "sof-pasuk"  ],
 ], [
   ["pazer-3", "lgarmeh-3",    "lgarmeh-3",    "lgarmeh-3",  "lgarmeh-3"     ],
   [None,      "rvia-gadol-3", "tzinor-3",     "dechi-3",    "dechi-3"       ],
   [None,      None,           "ole-vyored-3", "etnachta-3", "rvia-mugrash-3"],
   [None,      None,           None,           None,         "sof-pasuk-3"   ],
 ]]
+extra_jumps = [
+  ["kadma-vazla", "lgarmeh"]
+]
 
 conjs = {
   "pazer":       { "pazer-munach" }, "galgal-karne-farah": { "pazer-munach" },
@@ -116,6 +118,11 @@ for ix in range(0, len(tbls)):
                   for c in conjs.get(d, set()):
                     parents_jumps[c] |= alone_subs[tbl[col][row]]
 
+  for [d1, d2] in extra_jumps:
+    parents_jumps[d2].add(d1)
+    for c in conjs.get(d2, set()):
+      parents_jumps[c].add(d1)
+
   future_parents = { p: set(parents_direct[p]) for p in parents_direct }
   for _ in range(0, len(tbl)-1):
     for p in future_parents:
@@ -147,7 +154,7 @@ for p in alone_subs:
 
 # The example - unrelated to cantillation
 num_words = [[2, 3, 1, 2, 3, 3, 2], # [4, 2, 3, 2, 4, 3],
-             [3, 2, 5, 7, 3, 2],
+             [3, 2, 2, 3, 7, 3, 2],
              [2, 1, 3, 2, 2],
              [1, 5, 4, 4],
              [9], [7], [4, 2, 1], [4, 2, 1]]
