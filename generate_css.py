@@ -186,7 +186,7 @@ for i in range(0, len(num_words)):
         elif j < len(num_words[i])-1:
           parents[f'he{100 * i + 10 * (j + 1) + 1}'] = { p }
       equated[p] = { p }
-for x in ['a', 'b']:
+for x in ['a']:#, 'b']:
   for i in range(0, len(num_words)):
     for j in range(0, len(num_words[i])):
       for k in range(0, num_words[i][j]):
