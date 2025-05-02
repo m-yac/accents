@@ -5,14 +5,16 @@ tbls = [[
   [None,    None,      None,          "segol",       "zakef",       "tipcha",      "tipcha"     ],
   [None,    None,      None,          None,          None,          "etnachta",    "sof-pasuk"  ],
 ], [
-  ["pazer-3", "lgarmeh-3",    "lgarmeh-3",    "lgarmeh-3",  "lgarmeh-3"     ],
-  [None,      "rvia-gadol-3", "tzinor-3",     "dechi-3",    "dechi-3"       ],
-  [None,      None,           "ole-vyored-3", "etnachta-3", "rvia-mugrash-3"],
-  [None,      None,           None,           None,         "sof-pasuk-3"   ],
+  ["pazer-3", "mahpach-lgarmeh-3", "azla-lgarmeh-3", "azla-lgarmeh-3", "azla-lgarmeh-3", "azla-lgarmeh-3"],
+  [None,      "rvia-3",            "rvia-3",         "tzinor-3",       "dechi-3",        "dechi-3"       ],
+  [None,      None,                None,             "ole-vyored-3",   "etnachta-3",     "rvia-mugrash-3"],
+  [None,      None,                None,             None,             None,             "sof-pasuk-3"   ],
 ]]
-extra_jumps = [
-  ["kadma-vazla", "lgarmeh"]
-]
+extra_jumps = \
+  [ ["kadma-vazla", "lgarmeh"] ] + \
+  [ [d, "mahpach-lgarmeh-3"] for col in tbls[1] for d in col if d is not None and d != "mahpach-lgarmeh-3" ]
+extra_parents = \
+  [ ["mahpach-lgarmeh-3", d] for col in tbls[1] for d in col if d is not None and d != "mahpach-lgarmeh-3" ]
 
 conjs = {
   "pazer":       { "pazer-munach" },
@@ -20,7 +22,7 @@ conjs = {
   "kadma-vazla": { "kadma-vazla-tlisha" },
   "rvia":        { "rvia-munach" },
   "zarka":       { "zarka-munach", "sub-mercha" },
-  "pashta":      { "pashta-mapach", "sub-mercha" },
+  "pashta":      { "pashta-mahpach", "sub-mercha" },
   "tvir":        { "tvir-darga", "sub-mercha" },
   "segol":       { "segol-munach" },
   "zakef":       { "zakef-munach" },
@@ -28,12 +30,14 @@ conjs = {
   "etnachta":    { "etnachta-munach" },
   "sof-pasuk":   { "sof-pasuk-mercha" },
   "pazer-3":        { "pazer-galgal-3" },
-  "rvia-gadol-3":   { "rvia-gadol-ilui-3" },
+  "azla-lgarmeh-3": { "azla-lgarmeh-mahpach-3", "ilui-3", "tzinorit-mahpach-3" },
+  "rvia-3":         { "rvia-mahpach-3", "ilui-3", "tzinorit-mahpach-3" },
   "tzinor-3":       { "tzinor-munach-3" },
   "dechi-3":        { "dechi-munach-3" },
   "ole-vyored-3":   { "ole-vyored-etnach-hafuch-3" },
   "etnachta-3":     { "etnachta-munach-3" },
-  "rvia-mugrash-3": { "rvia-mugrash-mercha-3" },
+  "rvia-mugrash-3": { "rvia-mugrash-mercha-3", "tarcha-3", "tzinorit-mercha-3" },
+  "sof-pasuk-3":    { "sof-pasuk-mercha-3", "tzinorit-mercha-3" },
 }
 
 asterisks = [[[2, 3], [3, 5]],
@@ -44,19 +48,20 @@ def asterisk_applies(ix, col, row, new_row):
   return False
 
 subs = {
-  "segol":          { "shalshelet":         { "parents": set() } },
-  "zakef":          { "zakef-gadol":        { "parents": set() } },
-  "pashta":         { "ytiv":               { "parents": set() } },
-  "tvir":           { "mercha-kfulah":      { "parents": { "tvir-darga" }, "children": { "tipcha" }, "parents_jumps": set(),
-                                              "equated": { "tipcha-mercha" } } },
-  "kadma-vazla":    { "kadma":              {},
-                      "gershayim":          { "parents": set() },
-                      "azla-geresh":        { "parents": set() } },
-  "pazer":          { "tlisha-gdolah":      { "children_jumps": { "kadma-vazla" },
-                                              "equated": { "kadma-vazla-tlisha" } },
-                      "galgal-karne-farah": {} },
-  "rvia-mugrash-3": { "shalshelet-gadol-3": {} },
-  "tzinor-3":       { "rvia-3":             { "parents": set() } },
+  "segol":          { "shalshelet":          { "parents": set() } },
+  "zakef":          { "zakef-gadol":         { "parents": set() } },
+  "pashta":         { "ytiv":                { "parents": set() } },
+  "tvir":           { "mercha-kfulah":       { "parents": { "tvir-darga" }, "children": { "tipcha" }, "parents_jumps": set(),
+                                               "equated": { "tipcha-mercha" } } },
+  "kadma-vazla":    { "kadma":               {},
+                      "gershayim":           { "parents": set() },
+                      "azla-geresh":         { "parents": set() } },
+  "pazer":          { "tlisha-gdolah":       { "children_jumps": { "kadma-vazla" },
+                                               "equated": { "kadma-vazla-tlisha" } },
+                      "galgal-karne-farah":  {} },
+  "rvia-mugrash-3": { "shalshelet-3":        {} },
+  "tzinor-3":       { "rvia-katan-3":        { "parents": set() } },
+  "azla-lgarmeh-3": { "shalshelet-ktanah-3": {} },
 }
 
 
@@ -116,6 +121,13 @@ for ix in range(0, len(tbls)):
     parents_jumps[d2].add(d1)
     for c in conjs.get(d2, set()):
       parents_jumps[c].add(d1)
+  for [d1, d2] in extra_parents:
+    parents_direct[d2].add(d1)
+    for c in conjs.get(d2, set()):
+      parents_direct[c].add(d1)
+    children_direct[d1].add(d2)
+    for c in conjs.get(d2, set()):
+      children_direct[d1].add(c)
 
   for d in subs:
     for s in subs[d]:
