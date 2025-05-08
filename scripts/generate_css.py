@@ -1,3 +1,4 @@
+from pathlib import Path
 
 tbls = [[
   ["pazer", "lgarmeh", "kadma-vazla", "kadma-vazla", "kadma-vazla", "kadma-vazla", "kadma-vazla"],
@@ -209,7 +210,8 @@ def selector(m, p):
 def css(m):
   return ", ".join([ selector(m, p) for p in sorted(m) if len(m[p]) > 0 ])
 
-with open('generated.css', 'w') as f:
+generated_css = Path(__file__).parent.parent / 'generated.css'
+with generated_css.open('w') as f:
   for i in range(0, len(precedence)):
     if len(precedence[i]) == 0: continue;
     f.write(css(precedence[i]) + '{\n')
